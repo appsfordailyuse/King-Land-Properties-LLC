@@ -1,0 +1,857 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>King Land Properties LLC | Premium Real Estate Dubai & Sharjah</title>
+<meta name="description" content="King Land Properties LLC – Your trusted certified real estate dealership in Dubai & Sharjah. Residential, Commercial, Industrial Real Estate & Land.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --maroon:#6B1F3A; --maroon-light:#8B2E50;
+    --gold:#C9A84C; --gold-light:#E8C97A;
+    --navy:#0D1B2A; --navy-mid:#1A2D42;
+    --white:#FFFFFF; --off-white:#F7F5F2;
+    --gray:#8A8E95; --light-gray:#E8E6E2; --text:#1A1A1A;
+  }
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{font-family:'Jost',sans-serif;background:var(--white);color:var(--text);overflow-x:hidden;}
+
+  /* NAV */
+  nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(13,27,42,0.97);backdrop-filter:blur(12px);border-bottom:1px solid rgba(201,168,76,0.18);padding:0 5%;display:flex;align-items:center;justify-content:space-between;height:72px;transition:background 0.3s;}
+  .nav-logo{display:flex;align-items:center;gap:13px;text-decoration:none;}
+  .nav-logo-icon{width:44px;height:44px;background:rgba(107,31,58,0.35);border:1px solid rgba(201,168,76,0.28);display:flex;align-items:center;justify-content:center;}
+  .nlt{display:flex;flex-direction:column;line-height:1.15;}
+  .nlt span:first-child{color:var(--gold);font-family:'Playfair Display',serif;font-size:15.5px;font-weight:700;letter-spacing:0.03em;}
+  .nlt span:last-child{color:rgba(255,255,255,0.4);font-size:9px;letter-spacing:0.16em;text-transform:uppercase;}
+  .nav-links{display:flex;align-items:center;gap:28px;}
+  .nav-links a{color:rgba(255,255,255,0.75);text-decoration:none;font-size:12px;letter-spacing:0.07em;text-transform:uppercase;font-weight:500;transition:color 0.2s;}
+  .nav-links a:hover{color:var(--gold);}
+  .nav-cta{background:var(--maroon);color:white;border:none;padding:10px 20px;font-family:'Jost',sans-serif;font-size:11.5px;letter-spacing:0.1em;text-transform:uppercase;font-weight:600;cursor:pointer;transition:background 0.2s;text-decoration:none;white-space:nowrap;}
+  .nav-cta:hover{background:var(--maroon-light);}
+  .nav-hbg{display:none;flex-direction:column;gap:5px;cursor:pointer;}
+  .nav-hbg span{width:24px;height:2px;background:var(--gold);display:block;}
+  .mob-menu{display:none;position:fixed;top:72px;left:0;right:0;background:var(--navy);z-index:999;padding:18px 5%;flex-direction:column;gap:0;border-bottom:1px solid rgba(201,168,76,0.12);}
+  .mob-menu a{color:rgba(255,255,255,0.78);text-decoration:none;font-size:13px;letter-spacing:0.06em;text-transform:uppercase;font-weight:500;padding:13px 0;border-bottom:1px solid rgba(255,255,255,0.05);display:block;}
+  .mob-menu.open{display:flex;}
+
+  /* HERO */
+  .hero{min-height:100vh;background:var(--navy);display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:100px 5% 60px;position:relative;overflow:hidden;}
+  .hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% 40%,rgba(107,31,58,0.22) 0%,transparent 70%),radial-gradient(ellipse 60% 50% at 80% 80%,rgba(201,168,76,0.07) 0%,transparent 60%);}
+  .hero-pat{position:absolute;inset:0;opacity:0.034;background-image:repeating-linear-gradient(45deg,#C9A84C 0,#C9A84C 1px,transparent 0,transparent 50%);background-size:28px 28px;}
+  .hero-badge{position:relative;z-index:1;display:inline-block;background:rgba(201,168,76,0.1);border:1px solid rgba(201,168,76,0.27);color:var(--gold-light);font-size:10.5px;letter-spacing:0.2em;text-transform:uppercase;padding:8px 20px;margin-bottom:26px;}
+  .hero h1{position:relative;z-index:1;font-family:'Playfair Display',serif;color:white;font-size:clamp(36px,5.5vw,72px);font-weight:700;line-height:1.12;max-width:800px;margin-bottom:20px;}
+  .hero h1 em{color:var(--gold);font-style:normal;}
+  .hero p{position:relative;z-index:1;color:rgba(255,255,255,0.52);font-size:15.5px;line-height:1.8;max-width:530px;margin-bottom:38px;font-weight:300;}
+  .hero-btns{position:relative;z-index:1;display:flex;gap:14px;flex-wrap:wrap;justify-content:center;}
+  .btn-p{background:var(--maroon);color:white;padding:13px 34px;font-family:'Jost',sans-serif;font-size:12.5px;letter-spacing:0.1em;text-transform:uppercase;font-weight:600;border:none;cursor:pointer;text-decoration:none;display:inline-block;transition:all 0.2s;}
+  .btn-p:hover{background:var(--maroon-light);transform:translateY(-1px);}
+  .btn-o{background:transparent;color:var(--gold);padding:12px 34px;font-family:'Jost',sans-serif;font-size:12.5px;letter-spacing:0.1em;text-transform:uppercase;font-weight:600;border:1px solid rgba(201,168,76,0.42);cursor:pointer;text-decoration:none;display:inline-block;transition:all 0.2s;}
+  .btn-o:hover{background:rgba(201,168,76,0.08);border-color:var(--gold);}
+  .hero-stats{position:relative;z-index:1;display:flex;margin-top:56px;border:1px solid rgba(255,255,255,0.07);flex-wrap:wrap;}
+  .hstat{padding:20px 36px;border-right:1px solid rgba(255,255,255,0.07);text-align:center;flex:1;min-width:100px;}
+  .hstat:last-child{border-right:none;}
+  .hstat strong{display:block;color:var(--gold);font-family:'Playfair Display',serif;font-size:26px;font-weight:700;}
+  .hstat span{color:rgba(255,255,255,0.38);font-size:10px;letter-spacing:0.12em;text-transform:uppercase;margin-top:4px;display:block;}
+
+  /* SECTIONS */
+  section{padding:85px 5%;}
+  .sl{color:var(--maroon);font-size:10.5px;letter-spacing:0.2em;text-transform:uppercase;font-weight:600;margin-bottom:11px;}
+  .st{font-family:'Playfair Display',serif;font-size:clamp(26px,3.6vw,44px);font-weight:700;line-height:1.18;color:var(--navy);}
+  .st em{color:var(--maroon);font-style:normal;}
+  .ss{color:var(--gray);font-size:14.5px;line-height:1.76;max-width:510px;margin-top:15px;font-weight:300;}
+  .div{width:46px;height:2px;background:var(--gold);margin:18px 0;}
+
+  /* WHY STRIP */
+  .why{background:var(--navy);padding:48px 5%;display:grid;grid-template-columns:repeat(4,1fr);gap:0;}
+  .wi{padding:32px 26px;border-right:1px solid rgba(255,255,255,0.05);text-align:center;}
+  .wi:last-child{border-right:none;}
+  .wi-icon{width:50px;height:50px;background:rgba(107,31,58,0.3);border:1px solid rgba(107,31,58,0.5);display:flex;align-items:center;justify-content:center;margin:0 auto 16px;font-size:21px;}
+  .wi h4{color:white;font-size:13.5px;font-weight:600;margin-bottom:7px;}
+  .wi p{color:rgba(255,255,255,0.38);font-size:12.5px;line-height:1.6;font-weight:300;}
+
+  /* CATEGORIES */
+  .cat-sec{background:var(--off-white);}
+  .cat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;margin-top:46px;}
+  .cat-card{background:var(--navy);overflow:hidden;position:relative;transition:transform 0.3s;}
+  .cat-card:hover{transform:translateY(-4px);}
+  .cat-card::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(107,31,58,0.18) 0%,transparent 60%);}
+  .cc-inner{padding:38px 26px 34px;display:flex;flex-direction:column;gap:14px;height:100%;position:relative;z-index:1;}
+  .cc-num{color:rgba(201,168,76,0.18);font-family:'Playfair Display',serif;font-size:50px;font-weight:700;line-height:1;}
+  .cc-icon{width:54px;height:54px;background:rgba(201,168,76,0.1);border:1px solid rgba(201,168,76,0.22);display:flex;align-items:center;justify-content:center;font-size:23px;}
+  .cc-name{font-family:'Playfair Display',serif;color:white;font-size:21px;font-weight:700;line-height:1.2;margin-top:6px;}
+  .cc-desc{color:rgba(255,255,255,0.4);font-size:13px;line-height:1.66;font-weight:300;flex:1;}
+  .cc-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:4px;}
+  .cc-tag{background:rgba(201,168,76,0.09);border:1px solid rgba(201,168,76,0.18);color:var(--gold-light);font-size:9.5px;padding:4px 10px;letter-spacing:0.07em;font-weight:600;text-transform:uppercase;}
+
+  /* PROPERTIES */
+  .props-sec{background:white;}
+  .sec-hdr{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:46px;flex-wrap:wrap;gap:18px;}
+  .ftabs{display:flex;gap:0;flex-wrap:wrap;}
+  .ftab{padding:10px 18px;background:var(--off-white);border:1px solid var(--light-gray);font-size:11px;letter-spacing:0.08em;text-transform:uppercase;font-weight:600;cursor:pointer;color:var(--gray);transition:all 0.2s;border-right:none;}
+  .ftab:last-child{border-right:1px solid var(--light-gray);}
+  .ftab.active,.ftab:hover{background:var(--navy);color:var(--gold);border-color:var(--navy);}
+  .pgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;}
+  .pc{background:var(--off-white);overflow:hidden;cursor:pointer;transition:transform 0.3s,box-shadow 0.3s;}
+  .pc:hover{transform:translateY(-4px);box-shadow:0 18px 55px rgba(0,0,0,0.1);z-index:2;position:relative;}
+  .pimg{height:205px;position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;}
+  .pimg-ph{font-size:50px;opacity:0.17;color:var(--gold);}
+  .pbadge{position:absolute;top:13px;left:13px;background:var(--maroon);color:white;font-size:9.5px;letter-spacing:0.12em;text-transform:uppercase;padding:5px 11px;font-weight:600;}
+  .pbadge.new{background:var(--gold);color:var(--navy);}
+  .pdlogs{position:absolute;bottom:10px;right:10px;display:flex;gap:5px;align-items:center;}
+  .dlb{background:white;padding:5px 9px;font-size:8.5px;font-weight:700;letter-spacing:0.07em;text-transform:uppercase;color:var(--navy);}
+  .klb{background:var(--maroon);color:white;}
+  .pbody{padding:18px 17px 14px;background:white;}
+  .pdev{font-size:9.5px;letter-spacing:0.14em;text-transform:uppercase;color:var(--maroon);font-weight:600;margin-bottom:4px;}
+  .pname{font-family:'Playfair Display',serif;font-size:18px;font-weight:700;color:var(--navy);margin-bottom:5px;line-height:1.2;}
+  .ploc{color:var(--gray);font-size:11.5px;display:flex;align-items:center;gap:4px;margin-bottom:13px;}
+  .pspecs{display:flex;gap:12px;padding-top:11px;border-top:1px solid var(--light-gray);align-items:flex-end;}
+  .psp{font-size:11px;color:var(--gray);display:flex;flex-direction:column;gap:2px;}
+  .psp strong{color:var(--text);font-size:12px;font-weight:600;}
+  .ppr{margin-left:auto;text-align:right;}
+  .ppr span{font-size:9.5px;color:var(--gray);letter-spacing:0.1em;text-transform:uppercase;display:block;}
+  .ppr strong{color:var(--maroon);font-size:14px;font-weight:700;font-family:'Playfair Display',serif;}
+  .pfooter{padding:0 17px 15px;display:flex;gap:7px;background:white;}
+  .pbtn{flex:1;padding:10px;font-size:10.5px;letter-spacing:0.07em;text-transform:uppercase;font-weight:600;cursor:pointer;border:none;text-align:center;transition:all 0.2s;font-family:'Jost',sans-serif;}
+  .pbtn-m{background:var(--navy);color:white;}
+  .pbtn-m:hover{background:var(--maroon);}
+  .pbtn-wa{background:#25D366;color:white;}
+  .pbtn-wa:hover{background:#1fba59;}
+
+  /* DEVELOPERS */
+  .devs-sec{background:var(--off-white);}
+  .dg{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-top:46px;}
+  .dc{background:white;padding:32px 24px;display:flex;flex-direction:column;gap:11px;transition:all 0.25s;border-left:3px solid transparent;}
+  .dc:hover{border-left-color:var(--maroon);box-shadow:4px 0 22px rgba(0,0,0,0.06);}
+  .dn{font-family:'Playfair Display',serif;font-size:19px;font-weight:700;color:var(--navy);}
+  .dt{font-size:10.5px;color:var(--maroon);letter-spacing:0.1em;text-transform:uppercase;font-weight:600;}
+  .dd{font-size:13px;color:var(--gray);line-height:1.68;font-weight:300;}
+  .dps{display:flex;flex-wrap:wrap;gap:5px;margin-top:4px;}
+  .dpt{background:var(--off-white);color:var(--navy);font-size:9.5px;padding:4px 9px;letter-spacing:0.06em;font-weight:600;text-transform:uppercase;border:1px solid var(--light-gray);}
+
+  /* ABOUT */
+  .about-sec{background:var(--navy);display:grid;grid-template-columns:1fr 1fr;gap:76px;align-items:center;padding:85px 5%;}
+  .a-vis{position:relative;}
+  .a-img{width:100%;aspect-ratio:4/3;background:var(--navy-mid);display:flex;align-items:center;justify-content:center;border:1px solid rgba(201,168,76,0.11);overflow:hidden;}
+  .a-acc{position:absolute;bottom:-18px;right:-18px;width:108px;height:108px;border:2px solid rgba(201,168,76,0.18);}
+  .a-acc2{position:absolute;top:-13px;left:-13px;width:72px;height:72px;border:1px solid rgba(107,31,58,0.42);}
+  .a-cnt .st{color:white;} .a-cnt .ss{color:rgba(255,255,255,0.45);max-width:100%;} .a-cnt .sl{color:var(--gold);}
+  .a-feats{display:grid;grid-template-columns:1fr 1fr;gap:13px;margin-top:28px;}
+  .a-feat{display:flex;gap:11px;}
+  .a-fi{width:35px;height:35px;min-width:35px;background:rgba(107,31,58,0.38);border:1px solid rgba(107,31,58,0.55);display:flex;align-items:center;justify-content:center;font-size:15px;}
+  .a-ft h5{color:white;font-size:13px;font-weight:600;margin-bottom:2px;}
+  .a-ft p{color:rgba(255,255,255,0.38);font-size:12px;line-height:1.5;}
+  .a-contacts{margin-top:24px;display:flex;flex-direction:column;gap:10px;}
+  .a-ci{display:flex;gap:11px;align-items:flex-start;}
+  .a-ci .ic{color:var(--gold);font-size:13px;margin-top:1px;}
+  .a-ci .tx{color:rgba(255,255,255,0.58);font-size:13px;line-height:1.4;}
+
+  /* PROCESS */
+  .proc-sec{background:var(--off-white);}
+  .psteps{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:50px;position:relative;}
+  .psteps::before{content:'';position:absolute;top:28px;left:14%;right:14%;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);opacity:0.28;}
+  .pstep{text-align:center;padding:0 16px;position:relative;}
+  .snum{width:56px;height:56px;background:white;border:2px solid var(--maroon);display:flex;align-items:center;justify-content:center;margin:0 auto 18px;font-family:'Playfair Display',serif;font-size:21px;font-weight:700;color:var(--maroon);position:relative;z-index:1;}
+  .stitle{font-size:13px;font-weight:700;color:var(--navy);letter-spacing:0.03em;margin-bottom:9px;}
+  .sdesc{font-size:12.5px;color:var(--gray);line-height:1.62;font-weight:300;}
+
+  /* CONTACT */
+  .contact-sec{background:white;padding:85px 5%;}
+  .ch h2{font-family:'Playfair Display',serif;font-size:clamp(26px,3.8vw,44px);font-weight:700;color:var(--navy);}
+  .ch-line{width:58px;height:3px;background:var(--maroon);margin-top:11px;}
+  .cgrid{display:grid;grid-template-columns:320px 1fr;gap:44px;align-items:start;margin-top:38px;}
+  .cpcard{background:var(--navy);overflow:hidden;}
+  .cpimg{width:100%;aspect-ratio:1/1.05;background:linear-gradient(135deg,var(--navy-mid),#1a3050);display:flex;flex-direction:column;align-items:center;justify-content:center;position:relative;overflow:hidden;}
+  .cpimg-pat{position:absolute;inset:0;opacity:0.035;background-image:repeating-linear-gradient(45deg,#C9A84C 0,#C9A84C 1px,transparent 0,transparent 50%);background-size:22px 22px;}
+  .kl-logo-area{display:flex;flex-direction:column;align-items:center;gap:10px;z-index:1;padding:28px 18px;}
+  .kl-icon{width:68px;height:68px;background:rgba(107,31,58,0.42);border:2px solid rgba(201,168,76,0.28);display:flex;align-items:center;justify-content:center;}
+  .kl-name{font-family:'Playfair Display',serif;color:var(--gold);font-size:18px;font-weight:700;letter-spacing:0.03em;text-align:center;line-height:1.22;}
+  .kl-sub{color:rgba(255,255,255,0.3);font-size:10px;letter-spacing:0.15em;text-transform:uppercase;text-align:center;}
+  .cp-info{background:var(--maroon);padding:18px 20px;}
+  .cp-info h4{color:white;font-family:'Playfair Display',serif;font-size:16.5px;font-weight:700;}
+  .cp-info p{color:rgba(255,255,255,0.58);font-size:12px;margin-top:3px;}
+  .cp-info a{color:rgba(255,255,255,0.48);font-size:12px;text-decoration:none;display:flex;align-items:center;gap:6px;margin-top:8px;transition:color 0.2s;line-height:1.4;}
+  .cp-info a:hover{color:var(--gold-light);}
+  .cform{background:var(--navy);padding:38px 36px;}
+  .cr{display:grid;grid-template-columns:1fr 1fr;gap:13px;margin-bottom:13px;}
+  .cg{display:flex;flex-direction:column;gap:0;margin-bottom:13px;}
+  .cg input,.cg select,.cg textarea{border:none;border-bottom:1px solid rgba(255,255,255,0.14);background:transparent;padding:13px 0 11px;font-family:'Jost',sans-serif;font-size:13.5px;color:white;outline:none;transition:border-color 0.2s;width:100%;letter-spacing:0.02em;}
+  .cg input::placeholder,.cg textarea::placeholder{color:rgba(255,255,255,0.32);}
+  .cg select{color:rgba(255,255,255,0.55);}
+  .cg select option{background:var(--navy);color:white;}
+  .cg input:focus,.cg select:focus,.cg textarea:focus{border-bottom-color:var(--gold);}
+  .cg textarea{resize:vertical;min-height:85px;}
+  .cph-row{display:grid;grid-template-columns:108px 1fr;gap:13px;margin-bottom:13px;}
+  .cph-pre{display:flex;align-items:center;gap:6px;border-bottom:1px solid rgba(255,255,255,0.14);padding:13px 0 11px;color:rgba(255,255,255,0.65);font-size:13.5px;}
+  .ccons{display:flex;gap:10px;align-items:flex-start;margin-bottom:22px;}
+  .ccons input[type="checkbox"]{margin-top:2px;accent-color:var(--gold);min-width:15px;height:15px;cursor:pointer;}
+  .ccons label{color:rgba(255,255,255,0.35);font-size:11.5px;line-height:1.55;cursor:pointer;}
+  .ccons label a{color:rgba(201,168,76,0.65);}
+  .csub{background:var(--maroon);color:white;border:none;padding:14px 38px;font-family:'Jost',sans-serif;font-size:12.5px;letter-spacing:0.12em;text-transform:uppercase;font-weight:600;cursor:pointer;transition:background 0.2s;float:right;}
+  .csub:hover{background:var(--maroon-light);}
+  .cclr{clear:both;}
+
+  /* FOOTER */
+  footer{background:#070E16;padding:58px 5% 0;}
+  .ft{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:42px;padding-bottom:42px;border-bottom:1px solid rgba(255,255,255,0.05);}
+  .fb p{color:rgba(255,255,255,0.3);font-size:13px;line-height:1.7;font-weight:300;margin-top:14px;max-width:265px;}
+  .flr{display:flex;align-items:center;gap:11px;}
+  .fli{width:36px;height:36px;background:rgba(107,31,58,0.4);border:1px solid rgba(107,31,58,0.55);display:flex;align-items:center;justify-content:center;}
+  .flt{display:flex;flex-direction:column;line-height:1.15;}
+  .flt span:first-child{color:var(--gold);font-family:'Playfair Display',serif;font-size:13.5px;font-weight:700;}
+  .flt span:last-child{color:rgba(255,255,255,0.26);font-size:8.5px;letter-spacing:0.13em;text-transform:uppercase;}
+  .fc h5{color:white;font-size:10.5px;letter-spacing:0.15em;text-transform:uppercase;font-weight:700;margin-bottom:16px;}
+  .fc a{display:block;color:rgba(255,255,255,0.33);font-size:12.5px;text-decoration:none;margin-bottom:9px;transition:color 0.2s;font-weight:300;}
+  .fc a:hover{color:var(--gold);}
+  .fb-bot{padding:18px 0;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+  .fb-bot p{color:rgba(255,255,255,0.19);font-size:11.5px;}
+  .fb-links{display:flex;gap:16px;}
+  .fb-links a{color:rgba(255,255,255,0.19);font-size:11.5px;text-decoration:none;transition:color 0.2s;}
+  .fb-links a:hover{color:var(--gold);}
+
+  /* MODAL */
+  .mov{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.8);z-index:2000;align-items:center;justify-content:center;padding:18px;}
+  .mov.open{display:flex;}
+  .mbox{background:white;max-width:590px;width:100%;max-height:90vh;overflow-y:auto;}
+  .mhdr{background:var(--navy);padding:24px 28px;display:flex;align-items:flex-start;justify-content:space-between;}
+  .mhdr-t h3{color:white;font-family:'Playfair Display',serif;font-size:21px;}
+  .mhdr-t span{color:var(--gold);font-size:10.5px;letter-spacing:0.12em;text-transform:uppercase;}
+  .mclose{color:rgba(255,255,255,0.42);cursor:pointer;font-size:21px;background:none;border:none;padding:0;line-height:1;}
+  .mbody{padding:26px;}
+  .mdev-strip{display:flex;gap:9px;align-items:center;margin-bottom:20px;padding:11px 13px;background:var(--off-white);flex-wrap:wrap;}
+  .mdl{background:var(--navy);padding:6px 12px;font-size:9px;font-weight:700;color:var(--gold);letter-spacing:0.1em;text-transform:uppercase;}
+  .mkl{background:var(--maroon);padding:6px 12px;font-size:9px;font-weight:700;color:white;letter-spacing:0.1em;text-transform:uppercase;}
+  .mpl{color:var(--gray);font-size:15px;}
+  .mig{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-bottom:16px;}
+  .mii{padding:11px 13px;background:var(--off-white);}
+  .mii span{font-size:9.5px;letter-spacing:0.12em;text-transform:uppercase;color:var(--gray);display:block;margin-bottom:3px;}
+  .mii strong{font-size:13px;color:var(--navy);font-weight:600;}
+  .mdesc{margin-bottom:16px;font-size:13px;color:var(--gray);line-height:1.74;font-weight:300;}
+  .mams{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:20px;}
+  .am{background:var(--off-white);border:1px solid var(--light-gray);font-size:10.5px;padding:5px 10px;color:var(--navy);font-weight:500;}
+  .mctarow{display:flex;gap:9px;}
+  .mcta{flex:1;background:var(--maroon);color:white;border:none;padding:13px;font-family:'Jost',sans-serif;font-size:12px;letter-spacing:0.09em;text-transform:uppercase;font-weight:600;cursor:pointer;transition:background 0.2s;}
+  .mcta:hover{background:var(--maroon-light);}
+  .mwa{flex:1;background:#25D366;color:white;border:none;padding:13px;font-family:'Jost',sans-serif;font-size:12px;letter-spacing:0.09em;text-transform:uppercase;font-weight:600;cursor:pointer;transition:background 0.2s;}
+  .mwa:hover{background:#1fba59;}
+
+  /* TOAST */
+  .toast{position:fixed;bottom:22px;right:18px;background:var(--navy);border-left:3px solid #25D366;color:white;padding:13px 18px;font-size:13px;z-index:3000;transform:translateX(120%);transition:transform 0.3s;max-width:290px;box-shadow:0 8px 28px rgba(0,0,0,0.3);}
+  .toast.show{transform:translateX(0);}
+
+  /* RESPONSIVE */
+  @media(max-width:1100px){
+    .cat-grid{grid-template-columns:repeat(2,1fr);}
+    .pgrid{grid-template-columns:repeat(2,1fr);}
+    .dg{grid-template-columns:repeat(2,1fr);}
+    .why{grid-template-columns:repeat(2,1fr);}
+    .ft{grid-template-columns:1fr 1fr;}
+    .psteps{grid-template-columns:repeat(2,1fr);gap:28px;}
+    .psteps::before{display:none;}
+    .about-sec{grid-template-columns:1fr;gap:34px;padding:70px 5%;}
+    .cgrid{grid-template-columns:270px 1fr;gap:28px;}
+  }
+  @media(max-width:768px){
+    .nav-links{display:none;}
+    .nav-hbg{display:flex;}
+    .pgrid{grid-template-columns:1fr;}
+    .dg{grid-template-columns:1fr;}
+    .cgrid{grid-template-columns:1fr;}
+    .cform{padding:26px 20px;}
+    .cr{grid-template-columns:1fr;}
+    .cph-row{grid-template-columns:96px 1fr;}
+    .ft{grid-template-columns:1fr;gap:26px;}
+    .a-feats{grid-template-columns:1fr;}
+    .sec-hdr{flex-direction:column;align-items:flex-start;}
+    .mig{grid-template-columns:1fr;}
+    .mctarow{flex-direction:column;}
+    .cat-grid{grid-template-columns:1fr 1fr;}
+  }
+  @media(max-width:480px){
+    .why{grid-template-columns:1fr;}
+    .psteps{grid-template-columns:1fr;}
+    .cat-grid{grid-template-columns:1fr;}
+    .csub{width:100%;float:none;}
+    .hstat{min-width:50%;}
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="mainNav">
+  <a href="#home" class="nav-logo">
+    <div class="nav-logo-icon">
+      <svg viewBox="0 0 26 26" fill="none" width="26" height="26">
+        <path d="M13 2L3 8v10l10 6 10-6V8L13 2z" stroke="#C9A84C" stroke-width="1.5" fill="rgba(201,168,76,0.07)"/>
+        <path d="M13 6l-6 3.6v7.2L13 20l6-3.2V9.6L13 6z" fill="rgba(107,31,58,0.5)" stroke="#C9A84C" stroke-width="0.8"/>
+      </svg>
+    </div>
+    <div class="nlt">
+      <span>King Land Properties</span>
+      <span>LLC · Dubai & Sharjah</span>
+    </div>
+  </a>
+  <div class="nav-links">
+    <a href="#categories">Services</a>
+    <a href="#properties">Properties</a>
+    <a href="#developers">Developers</a>
+    <a href="#about">About</a>
+    <a href="#process">How It Works</a>
+    <a href="#contact">Contact</a>
+  </div>
+  <a href="#contact" class="nav-cta">Enquire Now</a>
+  <div class="nav-hbg" onclick="toggleMenu()"><span></span><span></span><span></span></div>
+</nav>
+<div class="mob-menu" id="mobMenu">
+  <a href="#categories" onclick="toggleMenu()">Services</a>
+  <a href="#properties" onclick="toggleMenu()">Properties</a>
+  <a href="#developers" onclick="toggleMenu()">Developers</a>
+  <a href="#about" onclick="toggleMenu()">About</a>
+  <a href="#process" onclick="toggleMenu()">How It Works</a>
+  <a href="#contact" onclick="toggleMenu()">Contact</a>
+</div>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-bg"></div><div class="hero-pat"></div>
+  <div class="hero-badge">Certified Real Estate Dealership · Dubai & Sharjah UAE</div>
+  <h1>Premium Properties by<br><em>Trusted Developers</em></h1>
+  <p>King Land Properties LLC connects discerning buyers with the finest residential developments across Sharjah and Dubai — through one certified, professional platform.</p>
+  <div class="hero-btns">
+    <a href="#properties" class="btn-p">Explore Properties</a>
+    <a href="#contact" class="btn-o">Free Consultation</a>
+  </div>
+  <div class="hero-stats">
+    <div class="hstat"><strong>2+</strong><span>Top Developers</span></div>
+    <div class="hstat"><strong>6+</strong><span>Active Projects</span></div>
+    <div class="hstat"><strong>AED 699K</strong><span>Starting Price</span></div>
+    <div class="hstat"><strong>100%</strong><span>Certified Dealer</span></div>
+  </div>
+</section>
+
+<!-- WHY -->
+<div class="why">
+  <div class="wi"><div class="wi-icon">🏅</div><h4>Certified Dealership</h4><p>Officially registered & certified real estate brokerage in UAE</p></div>
+  <div class="wi"><div class="wi-icon">🏗️</div><h4>Top Developers</h4><p>Alef Group, Arada & more — all RERA registered developers</p></div>
+  <div class="wi"><div class="wi-icon">💼</div><h4>End-to-End Service</h4><p>From property selection to booking, paperwork & handover</p></div>
+  <div class="wi"><div class="wi-icon">📊</div><h4>Flexible Payment</h4><p>Multiple installment plans tailored to your budget</p></div>
+</div>
+
+<!-- CATEGORIES -->
+<section class="cat-sec" id="categories">
+  <div class="sl">What We Deal In</div>
+  <h2 class="st">Our Real Estate <em>Categories</em></h2>
+  <div class="div"></div>
+  <p class="ss">King Land Properties LLC specializes across all major real estate categories in Dubai and Sharjah — residential to commercial, industrial to land.</p>
+  <div class="cat-grid">
+    <div class="cat-card"><div class="cc-inner">
+      <div class="cc-num">01</div>
+      <div class="cc-icon">🏠</div>
+      <div class="cc-name">Residential Real Estate</div>
+      <div class="cc-desc">Premium apartments, villas and townhouses from UAE's top developers. Ideal for families, professionals and investors seeking lifestyle and strong returns.</div>
+      <div class="cc-tags"><span class="cc-tag">Apartments</span><span class="cc-tag">Villas</span><span class="cc-tag">Townhouses</span><span class="cc-tag">Studios</span></div>
+    </div></div>
+    <div class="cat-card"><div class="cc-inner">
+      <div class="cc-num">02</div>
+      <div class="cc-icon">🏢</div>
+      <div class="cc-name">Commercial Real Estate</div>
+      <div class="cc-desc">Office spaces, retail shops and business centers in prime locations across Sharjah and Dubai. Perfect for growing businesses and savvy investors.</div>
+      <div class="cc-tags"><span class="cc-tag">Office Spaces</span><span class="cc-tag">Retail Shops</span><span class="cc-tag">Showrooms</span></div>
+    </div></div>
+    <div class="cat-card"><div class="cc-inner">
+      <div class="cc-num">03</div>
+      <div class="cc-icon">🏭</div>
+      <div class="cc-name">Industrial Real Estate</div>
+      <div class="cc-desc">Warehouses, factories and industrial units in UAE's major free zones and industrial corridors. Strategic locations for business expansion.</div>
+      <div class="cc-tags"><span class="cc-tag">Warehouses</span><span class="cc-tag">Factories</span><span class="cc-tag">Free Zones</span></div>
+    </div></div>
+    <div class="cat-card"><div class="cc-inner">
+      <div class="cc-num">04</div>
+      <div class="cc-icon">🗺️</div>
+      <div class="cc-name">Land</div>
+      <div class="cc-desc">Freehold and leasehold land plots across Dubai and Sharjah for residential, commercial and mixed-use development. Prime investment opportunity.</div>
+      <div class="cc-tags"><span class="cc-tag">Residential Plots</span><span class="cc-tag">Commercial Plots</span><span class="cc-tag">Mixed Use</span></div>
+    </div></div>
+  </div>
+</section>
+
+<!-- PROPERTIES -->
+<section class="props-sec" id="properties">
+  <div class="sec-hdr">
+    <div>
+      <div class="sl">Our Portfolio</div>
+      <h2 class="st">Featured <em>Properties</em></h2>
+      <div class="div"></div>
+      <p class="ss">Handpicked properties from UAE's leading developers — exclusively sold through King Land Properties LLC.</p>
+    </div>
+    <div class="ftabs">
+      <div class="ftab active" onclick="filterP(this,'all')">All</div>
+      <div class="ftab" onclick="filterP(this,'alef')">Alef Group</div>
+      <div class="ftab" onclick="filterP(this,'arada')">Arada</div>
+    </div>
+  </div>
+  <div class="pgrid" id="pgrid">
+
+    <div class="pc" data-dev="alef" onclick="openM('almamsha')">
+      <div class="pimg" style="background:linear-gradient(135deg,#0D2A1F,#1A4A32);">
+        <span class="pimg-ph">🌆</span>
+        <div class="pbadge new">Freehold</div>
+        <div class="pdlogs"><span class="dlb">Alef Group</span><span class="dlb klb">King Land</span></div>
+      </div>
+      <div class="pbody">
+        <div class="pdev">Alef Group</div>
+        <div class="pname">Al Mamsha Sharjah</div>
+        <div class="ploc">📍 Khalid Bin Sultan Al Qasimi St, Sharjah</div>
+        <div class="pspecs">
+          <div class="psp"><span>Type</span><strong>Studio – 3BR</strong></div>
+          <div class="psp"><span>Status</span><strong>Active</strong></div>
+          <div class="ppr"><span>Starting From</span><strong>AED 699,000</strong></div>
+        </div>
+      </div>
+      <div class="pfooter">
+        <button class="pbtn pbtn-m">View Details</button>
+        <button class="pbtn pbtn-wa" onclick="event.stopPropagation();waEnq('Al Mamsha Sharjah')">WhatsApp</button>
+      </div>
+    </div>
+
+    <div class="pc" data-dev="alef" onclick="openM('olfah')">
+      <div class="pimg" style="background:linear-gradient(135deg,#1A2D0D,#2D4A1A);">
+        <span class="pimg-ph">🌿</span>
+        <div class="pbadge">Nature Living</div>
+        <div class="pdlogs"><span class="dlb">Alef Group</span><span class="dlb klb">King Land</span></div>
+      </div>
+      <div class="pbody">
+        <div class="pdev">Alef Group</div>
+        <div class="pname">Olfah by Alef</div>
+        <div class="ploc">📍 Muweilah, Sharjah</div>
+        <div class="pspecs">
+          <div class="psp"><span>Type</span><strong>1 – 3 Bedroom</strong></div>
+          <div class="psp"><span>Status</span><strong>Off-Plan</strong></div>
+          <div class="ppr"><span>Starting From</span><strong>AED 699,000</strong></div>
+        </div>
+      </div>
+      <div class="pfooter">
+        <button class="pbtn pbtn-m">View Details</button>
+        <button class="pbtn pbtn-wa" onclick="event.stopPropagation();waEnq('Olfah by Alef')">WhatsApp</button>
+      </div>
+    </div>
+
+    <div class="pc" data-dev="arada" onclick="openM('masaar')">
+      <div class="pimg" style="background:linear-gradient(135deg,#0D1A2A,#1A3040);">
+        <span class="pimg-ph">🌳</span>
+        <div class="pbadge">Woodland Living</div>
+        <div class="pdlogs"><span class="dlb">Arada</span><span class="dlb klb">King Land</span></div>
+      </div>
+      <div class="pbody">
+        <div class="pdev">Arada Developments</div>
+        <div class="pname">Masaar</div>
+        <div class="ploc">📍 Al Suyoh, Sharjah</div>
+        <div class="pspecs">
+          <div class="psp"><span>Type</span><strong>Villas & Townhouses</strong></div>
+          <div class="psp"><span>Status</span><strong>Active</strong></div>
+          <div class="ppr"><span>Starting From</span><strong>AED 2,802,000</strong></div>
+        </div>
+      </div>
+      <div class="pfooter">
+        <button class="pbtn pbtn-m">View Details</button>
+        <button class="pbtn pbtn-wa" onclick="event.stopPropagation();waEnq('Masaar')">WhatsApp</button>
+      </div>
+    </div>
+
+    <div class="pc" data-dev="arada" onclick="openM('aljada')">
+      <div class="pimg" style="background:linear-gradient(135deg,#1A0D2A,#2A1A40);">
+        <span class="pimg-ph">🏙️</span>
+        <div class="pbadge">Urban Master</div>
+        <div class="pdlogs"><span class="dlb">Arada</span><span class="dlb klb">King Land</span></div>
+      </div>
+      <div class="pbody">
+        <div class="pdev">Arada Developments</div>
+        <div class="pname">Aljada</div>
+        <div class="ploc">📍 New Sharjah, UAE</div>
+        <div class="pspecs">
+          <div class="psp"><span>Type</span><strong>Studio – 4BR</strong></div>
+          <div class="psp"><span>Status</span><strong>Active</strong></div>
+          <div class="ppr"><span>Starting From</span><strong>AED 750,000</strong></div>
+        </div>
+      </div>
+      <div class="pfooter">
+        <button class="pbtn pbtn-m">View Details</button>
+        <button class="pbtn pbtn-wa" onclick="event.stopPropagation();waEnq('Aljada')">WhatsApp</button>
+      </div>
+    </div>
+
+    <div class="pc" data-dev="alef" onclick="openM('olfah5')">
+      <div class="pimg" style="background:linear-gradient(135deg,#1A2A0D,#304A1A);">
+        <span class="pimg-ph">🌲</span>
+        <div class="pbadge new">Latest Launch</div>
+        <div class="pdlogs"><span class="dlb">Alef Group</span><span class="dlb klb">King Land</span></div>
+      </div>
+      <div class="pbody">
+        <div class="pdev">Alef Group</div>
+        <div class="pname">Olfah 5 — New Tower</div>
+        <div class="ploc">📍 Muweilah, Sharjah</div>
+        <div class="pspecs">
+          <div class="psp"><span>Type</span><strong>1 – 3 Bedroom</strong></div>
+          <div class="psp"><span>Status</span><strong>Off-Plan</strong></div>
+          <div class="ppr"><span>Starting From</span><strong>AED 699,000</strong></div>
+        </div>
+      </div>
+      <div class="pfooter">
+        <button class="pbtn pbtn-m">View Details</button>
+        <button class="pbtn pbtn-wa" onclick="event.stopPropagation();waEnq('Olfah 5')">WhatsApp</button>
+      </div>
+    </div>
+
+    <div class="pc" data-dev="arada" onclick="openM('masaar_saro')">
+      <div class="pimg" style="background:linear-gradient(135deg,#0D1A1A,#1A3030);">
+        <span class="pimg-ph">🏡</span>
+        <div class="pbadge">Premium Villas</div>
+        <div class="pdlogs"><span class="dlb">Arada</span><span class="dlb klb">King Land</span></div>
+      </div>
+      <div class="pbody">
+        <div class="pdev">Arada Developments</div>
+        <div class="pname">Masaar — Saro Collection</div>
+        <div class="ploc">📍 Al Suyoh, Sharjah</div>
+        <div class="pspecs">
+          <div class="psp"><span>Type</span><strong>4 – 6 BR Villa</strong></div>
+          <div class="psp"><span>Status</span><strong>Active</strong></div>
+          <div class="ppr"><span>Starting From</span><strong>AED 5,363,000</strong></div>
+        </div>
+      </div>
+      <div class="pfooter">
+        <button class="pbtn pbtn-m">View Details</button>
+        <button class="pbtn pbtn-wa" onclick="event.stopPropagation();waEnq('Masaar Saro Collection')">WhatsApp</button>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- DEVELOPERS -->
+<section class="devs-sec" id="developers">
+  <div class="sl">Our Partners</div>
+  <h2 class="st">Registered <em>Developers</em></h2>
+  <div class="div"></div>
+  <p class="ss">We exclusively represent UAE's most trusted, RERA-registered developers. Every project listed is verified and certified.</p>
+  <div class="dg">
+    <div class="dc">
+      <div class="dt">Developer Partner</div>
+      <div class="dn">Alef Group</div>
+      <div class="dd">One of Sharjah's premier real estate developers, known for creating fully walkable, tech-integrated communities blending modern living with lifestyle amenities.</div>
+      <div class="dps"><span class="dpt">Al Mamsha</span><span class="dpt">Olfah</span><span class="dpt">Al Mamsha Seerah</span><span class="dpt">Raseel</span></div>
+    </div>
+    <div class="dc">
+      <div class="dt">Developer Partner</div>
+      <div class="dn">Arada</div>
+      <div class="dd">One of the UAE's fastest-growing developers. Known for nature-integrated communities, premium smart homes and world-class amenities across Sharjah and Dubai.</div>
+      <div class="dps"><span class="dpt">Masaar</span><span class="dpt">Aljada</span><span class="dpt">Nasma Residences</span><span class="dpt">Jouri Hills</span></div>
+    </div>
+    <div class="dc">
+      <div class="dt">Expanding Portfolio</div>
+      <div class="dn">More Coming Soon</div>
+      <div class="dd">King Land Properties continuously adds new certified developer partnerships. Our growing portfolio ensures access to the best off-plan and ready properties across UAE.</div>
+      <div class="dps"><span class="dpt">Dubai Projects</span><span class="dpt">Ajman</span><span class="dpt">More UAE</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about-sec" id="about">
+  <div class="a-vis">
+    <div class="a-img">
+      <div style="text-align:center;z-index:1;padding:28px 20px;">
+        <div style="width:76px;height:76px;background:rgba(107,31,58,0.42);border:2px solid rgba(201,168,76,0.28);display:flex;align-items:center;justify-content:center;margin:0 auto 16px;">
+          <svg viewBox="0 0 40 40" fill="none" width="42" height="42">
+            <path d="M20 3L4 12v16l16 9 16-9V12L20 3z" stroke="#C9A84C" stroke-width="1.5" fill="rgba(201,168,76,0.06)"/>
+            <path d="M20 9L9 15v12L20 31l11-4V15L20 9z" fill="rgba(107,31,58,0.5)" stroke="#C9A84C" stroke-width="0.8"/>
+          </svg>
+        </div>
+        <div style="font-family:'Playfair Display',serif;color:var(--gold);font-size:19px;font-weight:700;">King Land Properties</div>
+        <div style="color:rgba(255,255,255,0.3);font-size:9.5px;letter-spacing:0.17em;text-transform:uppercase;margin-top:5px;">LLC · Certified Real Estate Dealer</div>
+        <div style="display:flex;gap:10px;justify-content:center;margin-top:20px;flex-wrap:wrap;">
+          <div style="background:rgba(201,168,76,0.1);border:1px solid rgba(201,168,76,0.2);padding:7px 13px;color:rgba(201,168,76,0.75);font-size:10px;letter-spacing:0.1em;text-transform:uppercase;">Floor #6, Mai Tower</div>
+          <div style="background:rgba(107,31,58,0.3);border:1px solid rgba(107,31,58,0.38);padding:7px 13px;color:rgba(255,255,255,0.48);font-size:10px;letter-spacing:0.1em;text-transform:uppercase;">Al Nadal, Dubai</div>
+        </div>
+      </div>
+    </div>
+    <div class="a-acc"></div><div class="a-acc2"></div>
+  </div>
+  <div class="a-cnt">
+    <div class="sl">Who We Are</div>
+    <h2 class="st">Your Trusted Real Estate <em>Partner</em></h2>
+    <div class="div"></div>
+    <p class="ss">King Land Properties LLC is a certified, registered real estate dealership based in Dubai. We specialize in representing top UAE developers and connecting buyers to premium off-plan and ready properties across Sharjah and Dubai.</p>
+    <div class="a-feats">
+      <div class="a-feat"><div class="a-fi">📜</div><div class="a-ft"><h5>Certified & Licensed</h5><p>Fully registered under UAE real estate regulations</p></div></div>
+      <div class="a-feat"><div class="a-fi">🤝</div><div class="a-ft"><h5>Developer Tie-Ups</h5><p>Official sales rep for top UAE developers</p></div></div>
+      <div class="a-feat"><div class="a-fi">🗺️</div><div class="a-ft"><h5>Local Expertise</h5><p>Deep knowledge of Sharjah & Dubai markets</p></div></div>
+      <div class="a-feat"><div class="a-fi">💰</div><div class="a-ft"><h5>Best Price Promise</h5><p>Direct developer pricing — no hidden fees</p></div></div>
+    </div>
+    <div class="a-contacts">
+      <div class="a-ci"><span class="ic">📞</span><span class="tx">+971 52 314 0582</span></div>
+      <div class="a-ci"><span class="ic">📧</span><span class="tx">king.landpropertiesllcofficial@gmail.com</span></div>
+      <div class="a-ci"><span class="ic">📍</span><span class="tx">Floor #6, Mai Tower, P.O.Box 22169, Al Nadal, Dubai</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="proc-sec" id="process">
+  <div style="text-align:center;max-width:530px;margin:0 auto;">
+    <div class="sl">Simple Steps</div>
+    <h2 class="st">How to Buy Through <em>King Land</em></h2>
+    <div class="div" style="margin:16px auto;"></div>
+    <p class="ss" style="margin:0 auto;">A smooth, transparent property purchase from first enquiry to final handover.</p>
+  </div>
+  <div class="psteps">
+    <div class="pstep"><div class="snum">01</div><div class="stitle">Browse & Select</div><div class="sdesc">Explore our curated portfolio of verified properties. Filter by budget, type and location.</div></div>
+    <div class="pstep"><div class="snum">02</div><div class="stitle">Free Consultation</div><div class="sdesc">Schedule a free call. Our advisor guides you to the best option for your needs and budget.</div></div>
+    <div class="pstep"><div class="snum">03</div><div class="stitle">Site Visit & Booking</div><div class="sdesc">We arrange your visit and assist with all documentation and official booking.</div></div>
+    <div class="pstep"><div class="snum">04</div><div class="stitle">Handover & Support</div><div class="sdesc">We stay with you through payment plans, handover and post-purchase support.</div></div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact-sec" id="contact">
+  <div class="ch"><h2>Contact Us</h2><div class="ch-line"></div></div>
+  <div class="cgrid">
+
+    <!-- LEFT card like Cavendish Maxwell -->
+    <div class="cpcard">
+      <div class="cpimg">
+        <div class="cpimg-pat"></div>
+        <div class="kl-logo-area">
+          <div class="kl-icon">
+            <svg viewBox="0 0 40 40" fill="none" width="38" height="38">
+              <path d="M20 3L4 12v16l16 9 16-9V12L20 3z" stroke="#C9A84C" stroke-width="1.5" fill="rgba(201,168,76,0.08)"/>
+              <path d="M20 9L9 15v12L20 31l11-4V15L20 9z" fill="rgba(107,31,58,0.6)" stroke="#C9A84C" stroke-width="0.8"/>
+              <circle cx="20" cy="20" r="3" fill="#C9A84C" opacity="0.6"/>
+            </svg>
+          </div>
+          <div class="kl-name">King Land<br>Properties LLC</div>
+          <div class="kl-sub">Dubai & Sharjah · UAE</div>
+        </div>
+      </div>
+      <div class="cp-info">
+        <h4>King Land Properties LLC</h4>
+        <p>Certified Real Estate Dealership</p>
+        <a href="mailto:king.landpropertiesllcofficial@gmail.com">✉ king.landpropertiesllcofficial@gmail.com</a>
+        <a href="tel:+971523140582">📞 +971 52 314 0582</a>
+        <a href="https://wa.me/971523140582" target="_blank">💬 WhatsApp Us Directly</a>
+        <a href="#">📍 Floor #6, Mai Tower, Al Nadal, Dubai</a>
+      </div>
+    </div>
+
+    <!-- RIGHT form — navy bg like reference -->
+    <div class="cform">
+      <div class="cr">
+        <div class="cg"><input type="text" id="cf1" placeholder="First name *"></div>
+        <div class="cg"><input type="text" id="cf2" placeholder="Last name *"></div>
+      </div>
+      <div class="cr">
+        <div class="cg"><input type="text" id="cf3" placeholder="Company (optional)"></div>
+        <div class="cg">
+          <select id="cf4">
+            <option value="">Property interest...</option>
+            <option>Al Mamsha Sharjah — Alef Group</option>
+            <option>Olfah by Alef — Alef Group</option>
+            <option>Olfah 5 (New Tower) — Alef Group</option>
+            <option>Masaar — Arada</option>
+            <option>Masaar Saro Villas — Arada</option>
+            <option>Aljada — Arada</option>
+            <option>Commercial Real Estate</option>
+            <option>Industrial Real Estate</option>
+            <option>Land / Plot</option>
+            <option>Other / Not Sure</option>
+          </select>
+        </div>
+      </div>
+      <div class="cg"><input type="email" id="cf5" placeholder="Email *"></div>
+      <div class="cph-row">
+        <div class="cph-pre">🇦🇪 +971</div>
+        <div class="cg" style="margin:0;"><input type="tel" id="cf6" placeholder="Phone number *"></div>
+      </div>
+      <div class="cr">
+        <div class="cg">
+          <select id="cf7">
+            <option value="">Budget range (AED)...</option>
+            <option>Under 1,000,000</option>
+            <option>1,000,000 – 2,000,000</option>
+            <option>2,000,000 – 5,000,000</option>
+            <option>Above 5,000,000</option>
+          </select>
+        </div>
+        <div class="cg">
+          <select id="cf8">
+            <option value="">Category...</option>
+            <option>Residential</option>
+            <option>Commercial</option>
+            <option>Industrial</option>
+            <option>Land / Plot</option>
+          </select>
+        </div>
+      </div>
+      <div class="cg"><textarea id="cf9" placeholder="Message (optional)"></textarea></div>
+      <div class="ccons">
+        <input type="checkbox" id="cfcon" checked>
+        <label for="cfcon">By submitting this form, you consent to King Land Properties LLC collecting and using your personal information to contact you regarding your property enquiry. <a href="#">Privacy Policy</a>.</label>
+      </div>
+      <button class="csub" onclick="submitForm()">SUBMIT →</button>
+      <div class="cclr"></div>
+    </div>
+
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="ft">
+    <div class="fb">
+      <div class="flr">
+        <div class="fli">
+          <svg viewBox="0 0 26 26" fill="none" width="20" height="20">
+            <path d="M13 2L3 8v10l10 6 10-6V8L13 2z" stroke="#C9A84C" stroke-width="1.5" fill="rgba(201,168,76,0.06)"/>
+            <path d="M13 6l-6 3.6v7.2L13 20l6-3.2V9.6L13 6z" fill="rgba(107,31,58,0.5)" stroke="#C9A84C" stroke-width="0.8"/>
+          </svg>
+        </div>
+        <div class="flt"><span>King Land Properties</span><span>LLC · Dubai & Sharjah</span></div>
+      </div>
+      <p>Certified real estate dealership representing UAE's top developers. Floor #6, Mai Tower, Al Nadal, Dubai. P.O.Box 22169.</p>
+    </div>
+    <div class="fc">
+      <h5>Properties</h5>
+      <a href="#" onclick="openM('almamsha');return false;">Al Mamsha Sharjah</a>
+      <a href="#" onclick="openM('olfah');return false;">Olfah by Alef</a>
+      <a href="#" onclick="openM('masaar');return false;">Masaar</a>
+      <a href="#" onclick="openM('aljada');return false;">Aljada</a>
+    </div>
+    <div class="fc">
+      <h5>Categories</h5>
+      <a href="#categories">Residential</a>
+      <a href="#categories">Commercial</a>
+      <a href="#categories">Industrial</a>
+      <a href="#categories">Land / Plots</a>
+    </div>
+    <div class="fc">
+      <h5>Contact</h5>
+      <a href="tel:+971523140582">+971 52 314 0582</a>
+      <a href="mailto:king.landpropertiesllcofficial@gmail.com">Email Us</a>
+      <a href="https://wa.me/971523140582" target="_blank">WhatsApp</a>
+      <a href="#contact">Enquire Now</a>
+    </div>
+  </div>
+  <div class="fb-bot">
+    <p>© 2025 King Land Properties LLC. All Rights Reserved.</p>
+    <div class="fb-links"><a href="#">Privacy Policy</a><a href="#">Terms of Use</a></div>
+  </div>
+  <div style="height:10px;"></div>
+</footer>
+
+<!-- MODAL -->
+<div class="mov" id="mov" onclick="closeM(event)">
+  <div class="mbox">
+    <div class="mhdr">
+      <div class="mhdr-t"><h3 id="mT">Property</h3><span id="mD">Developer</span></div>
+      <button class="mclose" onclick="closeMD()">✕</button>
+    </div>
+    <div class="mbody">
+      <div class="mdev-strip">
+        <span id="mDB" class="mdl">DEV</span>
+        <span class="mpl">+</span>
+        <span class="mkl">King Land Properties LLC</span>
+      </div>
+      <div class="mig" id="mIG"></div>
+      <p class="mdesc" id="mDE"></p>
+      <div class="mams" id="mAM"></div>
+      <div class="mctarow">
+        <button class="mcta" id="mCTA">Enquire via Form →</button>
+        <button class="mwa" id="mWA">💬 WhatsApp Now</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- TOAST -->
+<div class="toast" id="toast">✅ Opening WhatsApp... Our team will respond shortly!</div>
+
+<script>
+const WAN = '971523140582';
+const props = {
+  almamsha:{title:'Al Mamsha Sharjah',dev:'Alef Group',info:[{l:'Location',v:'Khalid Bin Sultan Al Qasimi St, Sharjah'},{l:'Type',v:'Studio, 1, 2, 3 Bedroom'},{l:'Starting Price',v:'AED 699,000'},{l:'Community',v:'Fully Walkable — Freehold'},{l:'Sharjah Airport',v:'5 min'},{l:'Dubai Airport',v:'15 min'}],desc:"Al Mamsha is Sharjah's first fully walkable community by Alef Group. It integrates modern living, retail and leisure into a vibrant urban environment divided into 3 zones — Souks, Seerah and Raseel. Strategically located just 5 minutes from Sharjah Airport and 15 minutes from Dubai International Airport.",ams:['Walkable Pathways','Retail Souks','Community Parks','Smart Homes','Schools Nearby','Family Amenities','Swimming Pools','Parking']},
+  olfah:{title:'Olfah by Alef',dev:'Alef Group',info:[{l:'Location',v:'Muweilah, Sharjah'},{l:'1 Bedroom',v:'From AED 699,000'},{l:'2 Bedroom',v:'From AED 1,280,000'},{l:'3 Bedroom',v:'From AED 1,710,000'},{l:'Sharjah Airport',v:'5 min'},{l:'Status',v:'Off-Plan'}],desc:"Olfah is a forest-inspired, walkable community by Alef Group — located next to the Sharjah Academy for Astronomy. Featuring 5 residential towers, green spaces, amphitheater, woodland walks and recreational pools.",ams:['Amphitheater','Woodland Walk','Recreational Pool','Lawn Hills','BBQ Areas','Kids Play Area','Sand Play','Lush Green Areas']},
+  olfah5:{title:'Olfah 5 — New Tower',dev:'Alef Group',info:[{l:'Location',v:'Muweilah, Sharjah'},{l:'Type',v:'1, 2, 3 Bedroom'},{l:'Starting Price',v:'AED 699,000'},{l:'Tower',v:'Building 5 — Latest Launch'},{l:'University City',v:'2 min'},{l:'Status',v:'Off-Plan — New Launch'}],desc:"Olfah 5 is the latest tower in Alef Group's forest-inspired residential community in Muweilah, Sharjah. Modern apartments with green surroundings and direct E311 highway access.",ams:['Smart Home Features','Forest Views','Pool Access','Green Spine','BBQ Areas','Woodland Walk','Kids Zone','Community Hub']},
+  masaar:{title:'Masaar',dev:'Arada Developments',info:[{l:'Location',v:'Al Suyoh, Sharjah'},{l:'Type',v:'Villas & Townhouses'},{l:'Starting Price',v:'AED 2,802,000'},{l:'Project Size',v:'19M sq.ft.'},{l:'Trees',v:'50,000+'},{l:'Cycling Tracks',v:'13 km'}],desc:"Masaar by Arada is an upscale forested community — a sanctuary formed by 7 gated districts with a 'green spine' of 50,000+ trees, 13km cycling & jogging trails, sports courts and every necessity close at hand.",ams:['7 Gated Districts','13km Cycling Track','50,000 Trees','Smart Homes','Community Center','Football Pitches','Tennis Courts','Padel Tennis']},
+  masaar_saro:{title:'Masaar — Saro Collection',dev:'Arada Developments',info:[{l:'Location',v:'Al Suyoh, Sharjah'},{l:'4BR Townhouse',v:'From AED 2,802,000'},{l:'4BR Villa',v:'From AED 5,363,000'},{l:'5BR Villa',v:'From AED 7,173,000'},{l:'6BR Villa',v:'From AED 9,259,000'},{l:'Status',v:'Active'}],desc:"The Saro Collection at Masaar — premium villas from elegant 4-bedroom townhouses to grand 6-bedroom signature villas. All featuring smart home technology, direct green park access and private outdoor spaces.",ams:['Smart Home Tech','Private Garden','Park Access','Driveway','Premium Finishes','Sports Courts','Community Hub','24/7 Security']},
+  aljada:{title:'Aljada',dev:'Arada Developments',info:[{l:'Location',v:'New Sharjah, UAE'},{l:'Type',v:'Studio – 4 Bedroom'},{l:'Starting Price',v:'AED 750,000'},{l:'Project Size',v:'24M sq.ft.'},{l:'Airport',v:'10 min'},{l:'Status',v:'Active — Freehold'}],desc:"Aljada is Arada's landmark 24M sq.ft. master community in Sharjah — a self-sustained urban development integrating living, working, entertainment and retail. Planned for 70,000+ residents across 7 sub-communities.",ams:['Freehold Property','East Boulevard Retail','Sports Complex','SABIS School','Madar Entertainment','Smart Homes','Parks','Community Hub']}
+};
+
+function openM(id){
+  const p=props[id]; if(!p) return;
+  document.getElementById('mT').textContent=p.title;
+  document.getElementById('mD').textContent=p.dev;
+  document.getElementById('mDB').textContent=p.dev;
+  document.getElementById('mIG').innerHTML=p.info.map(i=>`<div class="mii"><span>${i.l}</span><strong>${i.v}</strong></div>`).join('');
+  document.getElementById('mDE').textContent=p.desc;
+  document.getElementById('mAM').innerHTML=p.ams.map(a=>`<span class="am">${a}</span>`).join('');
+  document.getElementById('mCTA').onclick=()=>{closeMD();document.getElementById('cf4').value=p.title+' — '+p.dev;document.getElementById('contact').scrollIntoView({behavior:'smooth'});};
+  document.getElementById('mWA').onclick=()=>{waEnq(p.title);closeMD();};
+  document.getElementById('mov').classList.add('open');
+  document.body.style.overflow='hidden';
+}
+function closeM(e){if(e.target===document.getElementById('mov'))closeMD();}
+function closeMD(){document.getElementById('mov').classList.remove('open');document.body.style.overflow='';}
+
+function filterP(el,dev){
+  document.querySelectorAll('.ftab').forEach(t=>t.classList.remove('active'));
+  el.classList.add('active');
+  document.querySelectorAll('.pc').forEach(c=>{c.style.display=(dev==='all'||c.dataset.dev===dev)?'':'none';});
+}
+
+function waEnq(name){
+  const msg=encodeURIComponent(`Hello King Land Properties LLC,\n\nI am interested in: *${name}*\n\nPlease provide me more details and availability.\n\nThank you.`);
+  window.open(`https://wa.me/${WAN}?text=${msg}`,'_blank');
+}
+
+function submitForm(){
+  const f=document.getElementById('cf1').value.trim();
+  const l=document.getElementById('cf2').value.trim();
+  const em=document.getElementById('cf5').value.trim();
+  const ph=document.getElementById('cf6').value.trim();
+  const co=document.getElementById('cf3').value.trim();
+  const pi=document.getElementById('cf4').value;
+  const bu=document.getElementById('cf7').value;
+  const ca=document.getElementById('cf8').value;
+  const ms=document.getElementById('cf9').value.trim();
+  const cn=document.getElementById('cfcon').checked;
+  if(!f){alert('Please enter your first name.');return;}
+  if(!ph&&!em){alert('Please enter your phone number or email.');return;}
+  if(!cn){alert('Please agree to the privacy policy to proceed.');return;}
+  const wa=`*New Enquiry — King Land Properties LLC*
+━━━━━━━━━━━━━━━━━
+👤 *Name:* ${f} ${l}
+📧 *Email:* ${em||'N/A'}
+📞 *Phone:* +971 ${ph}
+🏢 *Company:* ${co||'N/A'}
+━━━━━━━━━━━━━━━━━
+🏠 *Property:* ${pi||'Not specified'}
+📂 *Category:* ${ca||'Not specified'}
+💰 *Budget:* ${bu||'Not specified'}
+━━━━━━━━━━━━━━━━━
+💬 *Message:* ${ms||'No message'}
+━━━━━━━━━━━━━━━━━
+Source: King Land Properties Website`;
+  window.open(`https://wa.me/${WAN}?text=${encodeURIComponent(wa)}`,'_blank');
+  showToast();
+  ['cf1','cf2','cf3','cf5','cf6','cf9'].forEach(id=>document.getElementById(id).value='');
+  document.getElementById('cf4').value='';document.getElementById('cf7').value='';document.getElementById('cf8').value='';
+}
+
+function showToast(){const t=document.getElementById('toast');t.classList.add('show');setTimeout(()=>t.classList.remove('show'),4500);}
+function toggleMenu(){document.getElementById('mobMenu').classList.toggle('open');}
+window.addEventListener('scroll',()=>{const n=document.getElementById('mainNav');n.style.background=window.scrollY>80?'rgba(7,14,22,0.99)':'rgba(13,27,42,0.97)';});
+</script>
+</body>
+</html>
