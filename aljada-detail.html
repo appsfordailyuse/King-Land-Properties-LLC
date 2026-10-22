@@ -16,21 +16,30 @@
   .topbar-back { display: flex; align-items: center; gap: 10px; color: var(--gold); text-decoration: none; font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; transition: opacity 0.2s; }
   .topbar-back:hover { opacity: 0.7; }
   .topbar-back svg { width: 18px; }
-  .topbar-brand { font-family: 'Cormorant Garamond', serif; font-size: 15px; font-weight: 600; color: var(--gold); text-decoration: none; }
-  .topbar-cta { background: var(--gold); color: var(--dark); border: none; padding: 9px 22px; font-size: 12px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none; transition: background 0.2s; }
+  .topbar-brand { font-family: 'Cormorant Garamond', serif; font-size: 15px; font-weight: 600; letter-spacing: 0.06em; color: var(--gold); text-decoration: none; }
+  .topbar-cta { background: var(--gold); color: var(--dark); border: none; padding: 9px 22px; font-family: 'DM Sans', sans-serif; font-size: 12px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; cursor: pointer; text-decoration: none; transition: background 0.2s; }
   .topbar-cta:hover { background: var(--gold-light); }
 
   .hero { position: relative; height: 92vh; min-height: 560px; display: flex; align-items: flex-end; overflow: hidden; }
-  .hero-bg { position: absolute; inset: 0; background: url('https://aradawebcontent.blob.core.windows.net/arada-com/2024/01/masaar4.jpg') center/cover no-repeat; }
-  .hero-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(13,15,14,0.97) 0%, rgba(13,15,14,0.4) 55%, rgba(13,15,14,0.1) 100%); }
+  .hero-slider { position: absolute; inset: 0; }
+  .hero-slide { position: absolute; inset: 0; background-size: cover; background-position: center; opacity: 0; transition: opacity 1.2s ease; }
+  .hero-slide.active { opacity: 1; }
+  .hero-slide:nth-child(1) { background-image: url('https://aradawebcontent.blob.core.windows.net/arada-com/2022/09/aljada1.png'); }
+  .hero-slide:nth-child(2) { background-image: url('https://aradawebcontent.blob.core.windows.net/arada-com/2022/09/gene-7.jpg'); }
+  .hero-slide:nth-child(3) { background-image: url('https://aradawebcontent.blob.core.windows.net/arada-com/2022/09/gene-6.jpg'); }
+  .hero-slide:nth-child(4) { background-image: url('https://aradawebcontent.blob.core.windows.net/arada-com/2022/09/gene-3.jpg'); }
+  .hero-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(13,15,14,0.95) 0%, rgba(13,15,14,0.3) 50%, rgba(13,15,14,0.1) 100%); }
   .hero-content { position: relative; z-index: 2; padding: 0 60px 70px; max-width: 900px; }
   .hero-badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(201,169,110,0.12); border: 1px solid rgba(201,169,110,0.35); padding: 6px 16px; font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gold); margin-bottom: 20px; }
   .hero-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(52px, 7vw, 86px); font-weight: 400; line-height: 1.0; margin-bottom: 12px; }
   .hero-title em { font-style: italic; color: var(--gold); }
   .hero-sub { color: var(--muted); font-size: 15px; letter-spacing: 0.04em; margin-bottom: 36px; }
-  .hero-stats { display: flex; gap: 48px; flex-wrap: wrap; }
+  .hero-stats { display: flex; gap: 48px; }
   .hero-stat-num { font-family: 'Cormorant Garamond', serif; font-size: 34px; font-weight: 600; color: var(--gold); line-height: 1; }
   .hero-stat-label { font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin-top: 4px; }
+  .hero-dots { position: absolute; bottom: 30px; right: 60px; display: flex; gap: 8px; z-index: 3; }
+  .hero-dot { width: 28px; height: 2px; background: rgba(201,169,110,0.35); cursor: pointer; transition: background 0.3s; }
+  .hero-dot.active { background: var(--gold); }
 
   section { padding: 90px 60px; }
   .section-label { font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 14px; }
@@ -48,34 +57,35 @@
 
   .gallery-section { padding: 80px 60px; background: var(--dark); }
   .gallery-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; grid-template-rows: 260px 260px; gap: 6px; margin-top: 40px; }
-  .gallery-item { overflow: hidden; }
+  .gallery-item { overflow: hidden; cursor: pointer; }
   .gallery-item:first-child { grid-row: 1 / 3; }
   .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease; display: block; }
   .gallery-item:hover img { transform: scale(1.04); }
 
-  .units-section { background: var(--dark2); }
-  .units-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2px; margin-top: 40px; }
-  .unit-card { background: var(--dark3); padding: 36px; border-bottom: 2px solid transparent; transition: border-color 0.3s; }
-  .unit-card:hover { border-bottom-color: var(--gold); }
-  .unit-br { font-family: 'Cormorant Garamond', serif; font-size: 32px; font-weight: 400; margin-bottom: 8px; }
-  .unit-desc { font-size: 13px; color: var(--muted); margin-bottom: 16px; line-height: 1.6; }
-  .unit-price { font-family: 'Cormorant Garamond', serif; font-size: 20px; color: var(--gold); font-weight: 600; }
+  .collections { background: var(--dark2); }
+  .collections-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 2px; margin-top: 40px; }
+  .collection-card { background: var(--dark3); overflow: hidden; position: relative; transition: transform 0.3s; }
+  .collection-card:hover { transform: translateY(-4px); }
+  .collection-img { width: 100%; height: 240px; object-fit: cover; display: block; transition: transform 0.5s; }
+  .collection-card:hover .collection-img { transform: scale(1.04); }
+  .collection-avail { position: absolute; top: 16px; left: 16px; background: var(--gold); color: var(--dark); font-size: 10px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; padding: 5px 12px; }
+  .collection-body { padding: 24px; border-top: 1px solid rgba(201,169,110,0.1); }
+  .collection-name { font-family: 'Cormorant Garamond', serif; font-size: 22px; margin-bottom: 6px; }
+  .collection-type { font-size: 12px; color: var(--muted); letter-spacing: 0.06em; margin-bottom: 14px; }
+  .collection-price { font-family: 'Cormorant Garamond', serif; font-size: 20px; color: var(--gold); font-weight: 600; }
 
   .features-section { background: var(--dark); }
-  .features-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; }
+  .features-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
   .feature-list { list-style: none; }
   .feature-list li { padding: 16px 0; border-bottom: 1px solid rgba(201,169,110,0.1); display: flex; align-items: flex-start; gap: 14px; font-size: 14px; color: var(--muted); line-height: 1.6; }
   .feature-list li::before { content: ''; width: 6px; height: 6px; background: var(--gold); border-radius: 50%; flex-shrink: 0; margin-top: 6px; }
-  .amenity-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-  .amenity-item { background: var(--dark2); padding: 16px 18px; font-size: 13px; color: var(--muted); border-left: 2px solid transparent; transition: border-color 0.2s, color 0.2s; }
-  .amenity-item:hover { border-left-color: var(--gold); color: var(--text); }
+  .facilities-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .facility-item { background: var(--dark3); padding: 16px 18px; font-size: 13px; color: var(--muted); border-left: 2px solid transparent; transition: border-color 0.2s, color 0.2s; }
+  .facility-item:hover { border-left-color: var(--gold); color: var(--text); }
 
   .location-section { background: var(--dark2); display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
-  .loc-item { display: flex; align-items: center; gap: 20px; padding: 14px 0; border-bottom: 1px solid rgba(201,169,110,0.08); }
-  .loc-num { font-family: 'Cormorant Garamond', serif; font-size: 28px; font-weight: 600; color: var(--gold); min-width: 70px; }
-  .loc-place { font-size: 14px; color: var(--text); }
   .map-embed { border: 1px solid rgba(201,169,110,0.15); overflow: hidden; height: 360px; }
-  .map-embed iframe { width: 100%; height: 100%; border: none; }
+  .map-embed iframe { width: 100%; height: 100%; border: none; filter: grayscale(40%) invert(0.05); }
 
   .contact-section { background: var(--dark); max-width: 720px; margin: 0 auto; text-align: center; padding: 100px 40px; }
   .contact-form { background: var(--dark2); border: 1px solid rgba(201,169,110,0.15); padding: 50px; margin-top: 50px; text-align: left; }
@@ -86,14 +96,14 @@
   .form-group input:focus, .form-group select:focus, .form-group textarea:focus { border-color: var(--gold); }
   .form-group select option { background: var(--dark3); }
   .form-group textarea { resize: vertical; min-height: 110px; }
-  .submit-btn { background: var(--gold); color: var(--dark); border: none; padding: 16px; font-family: 'DM Sans', sans-serif; font-size: 13px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; cursor: pointer; width: 100%; transition: background 0.2s; }
+  .submit-btn { background: var(--gold); color: var(--dark); border: none; padding: 16px 48px; font-family: 'DM Sans', sans-serif; font-size: 13px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; cursor: pointer; width: 100%; transition: background 0.2s; }
   .submit-btn:hover { background: var(--gold-light); }
   .form-note { font-size: 12px; color: var(--muted); text-align: center; margin-top: 16px; }
-  .whatsapp-btn { display: flex; align-items: center; justify-content: center; gap: 10px; background: #1a5c2e; border: 1px solid #25d366; color: #e8e4dc; padding: 14px; font-size: 13px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none; margin-top: 16px; transition: background 0.2s; }
+  .whatsapp-btn { display: flex; align-items: center; justify-content: center; gap: 10px; background: #1a5c2e; border: 1px solid #25d366; color: #e8e4dc; padding: 14px 32px; font-size: 13px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none; margin-top: 16px; transition: background 0.2s; }
   .whatsapp-btn:hover { background: #225c34; }
-  .form-success { display: none; background: rgba(42,74,46,0.3); border: 1px solid #2a8a3e; color: #a8d8b0; padding: 18px; text-align: center; font-size: 14px; margin-top: 20px; }
+  .form-success { display: none; background: rgba(42,74,46,0.3); border: 1px solid #2a8a3e; color: #a8d8b0; padding: 18px 24px; text-align: center; font-size: 14px; margin-top: 20px; }
 
-  footer { background: var(--dark2); border-top: 1px solid rgba(201,169,110,0.15); padding: 40px 60px; display: flex; align-items: center; justify-content: space-between; }
+  .footer { background: var(--dark2); border-top: 1px solid rgba(201,169,110,0.15); padding: 40px 60px; display: flex; align-items: center; justify-content: space-between; }
   .footer-brand { font-family: 'Cormorant Garamond', serif; font-size: 18px; font-weight: 600; color: var(--gold); }
   .footer-info { font-size: 12px; color: var(--muted); line-height: 1.8; text-align: right; }
 
@@ -102,13 +112,15 @@
     .topbar { padding: 16px 24px; }
     .hero-content { padding: 0 24px 56px; }
     .overview, .features-grid, .location-section { grid-template-columns: 1fr; gap: 40px; }
+    .gallery-section { padding: 60px 24px; }
     .gallery-grid { grid-template-columns: 1fr 1fr; grid-template-rows: auto; }
     .gallery-item:first-child { grid-row: auto; }
-    .units-grid { grid-template-columns: 1fr; }
-    .amenity-grid { grid-template-columns: 1fr; }
+    .collections-grid { grid-template-columns: 1fr; }
     .form-row { grid-template-columns: 1fr; }
-    .footer { flex-direction: column; gap: 20px; }
+    .footer { flex-direction: column; gap: 20px; text-align: center; padding: 40px 24px; }
     .footer-info { text-align: center; }
+    .hero-stats { gap: 28px; flex-wrap: wrap; }
+    .hero-dots { right: 24px; }
     .topbar-brand { display: none; }
     .contact-section { padding: 70px 20px; }
     .contact-form { padding: 30px 20px; }
@@ -117,6 +129,7 @@
 </head>
 <body>
 
+<!-- TOP NAV -->
 <nav class="topbar">
   <a href="index.html" class="topbar-back">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M5 12l7-7M5 12l7 7"/></svg>
@@ -126,208 +139,324 @@
   <a href="#contact" class="topbar-cta">Enquire Now</a>
 </nav>
 
+<!-- HERO -->
 <div class="hero">
-  <div class="hero-bg"></div>
+  <div class="hero-slider">
+    <div class="hero-slide active"></div>
+    <div class="hero-slide"></div>
+    <div class="hero-slide"></div>
+    <div class="hero-slide"></div>
+  </div>
   <div class="hero-overlay"></div>
   <div class="hero-content">
     <div class="hero-badge"><span>🏙️</span> Arada Developments · New Sharjah, UAE</div>
-    <h1 class="hero-title">Aljada<br><em>Urban Master</em></h1>
-    <p class="hero-sub">Studio – 4 Bedroom Apartments · The Downtown of New Sharjah · 24M Sq.ft.</p>
+    <h1 class="hero-title">Aljada<br><em>The Downtown of New Sharjah</em></h1>
+    <p class="hero-sub">1 – 3 Bedroom Apartments · Freehold for All Nationalities · Sharjah, UAE</p>
     <div class="hero-stats">
-      <div><div class="hero-stat-num">24M</div><div class="hero-stat-label">Sq.ft. Development</div></div>
-      <div><div class="hero-stat-num">75K</div><div class="hero-stat-label">Planned Residents</div></div>
-      <div><div class="hero-stat-num">AED 750K</div><div class="hero-stat-label">Starting Price</div></div>
-      <div><div class="hero-stat-num">Active</div><div class="hero-stat-label">Status</div></div>
+      <div><div class="hero-stat-num">24M</div><div class="hero-stat-label">Sq.ft. Project Size</div></div>
+      <div><div class="hero-stat-num">25,000</div><div class="hero-stat-label">Residential Units</div></div>
+      <div><div class="hero-stat-num">250K</div><div class="hero-stat-label">m² Green Space</div></div>
+      <div><div class="hero-stat-num">1.9M</div><div class="hero-stat-label">Sq.ft. Family Entertainment</div></div>
     </div>
+  </div>
+  <div class="hero-dots">
+    <div class="hero-dot active" onclick="goSlide(0)"></div>
+    <div class="hero-dot" onclick="goSlide(1)"></div>
+    <div class="hero-dot" onclick="goSlide(2)"></div>
+    <div class="hero-dot" onclick="goSlide(3)"></div>
   </div>
 </div>
 
+<!-- OVERVIEW -->
 <section class="overview">
   <div class="overview-text">
     <div class="section-label">About Aljada</div>
-    <h2 class="section-title"><em>The Downtown</em><br>of New Sharjah</h2>
+    <h2 class="section-title"><em>A Self-Sustained</em><br>Community</h2>
     <div class="divider"></div>
-    <p>Aljada is a landmark development that redefines Sharjah living. It is a destination where everything is at your fingertips — living, working, entertainment, recreation, shopping and culture all come together in a vibrant, unique urban environment spanning 24 million square feet.</p>
-    <p>Designed to house 75,000 residents upon completion, Aljada features the world-famous Madar entertainment hub designed by Zaha Hadid Architects, welcoming over 120,000 visitors a month. Smart homes, green parks, schools, hospitals, retail — all in one place.</p>
+    <p>Aljada, developed by Arada, is a landmark development that redefines Sharjah living. It is a destination where living, working, entertainment, recreation, shopping and culture all come together in one vibrant urban environment — the downtown of new Sharjah.</p>
+    <p>The community spans 24 million sq.ft. with a 4.4 km retail boulevard, 4 hotels, 3 schools, an education district, 500,000 sqm of prime office space and 165,000 sqm of leasable retail space, with more than 5 km of parks for residents to enjoy.</p>
     <div class="overview-highlight">
-      📍 <strong>New Sharjah, UAE</strong> — at the intersection of E311 & E88<br>
+      📍 <strong>Aljada, New Sharjah, UAE</strong><br>
       Available through King Land Properties LLC — your certified, registered real estate partner in UAE.
     </div>
   </div>
   <div class="quick-stats">
-    <div class="qs-card"><div class="qs-num">24M</div><div class="qs-label">Sq.ft. Total Area</div></div>
-    <div class="qs-card"><div class="qs-num">AED 750K</div><div class="qs-label">Starting Price</div></div>
-    <div class="qs-card"><div class="qs-num">Studio–4BR</div><div class="qs-label">Unit Types</div></div>
-    <div class="qs-card"><div class="qs-num">75,000</div><div class="qs-label">Planned Residents</div></div>
-    <div class="qs-card" style="grid-column:1/3;"><div class="qs-num" style="font-size:22px;">Zaha Hadid Designed</div><div class="qs-label">Madar entertainment hub inside Aljada · 120,000+ monthly visitors</div></div>
+    <div class="qs-card"><div class="qs-num">24M</div><div class="qs-label">Sq.ft. Project Size</div></div>
+    <div class="qs-card"><div class="qs-num">AED 1.2M</div><div class="qs-label">Starting Price (1BR)</div></div>
+    <div class="qs-card"><div class="qs-num">4.4km</div><div class="qs-label">Retail Boulevard</div></div>
+    <div class="qs-card"><div class="qs-num">1–3BR</div><div class="qs-label">Unit Sizes Available</div></div>
+    <div class="qs-card" style="grid-column: 1 / 3;">
+      <div class="qs-num" style="font-size:22px;">Apartments with Smart Home Features</div>
+      <div class="qs-label">Cooker, hood and washer-dryer included in every home</div>
+    </div>
   </div>
 </section>
 
+<!-- GALLERY -->
 <div class="gallery-section">
   <div class="section-label">Gallery</div>
   <h2 class="section-title">Inside <em>Aljada</em></h2>
   <div class="gallery-grid">
-    <div class="gallery-item"><img src="https://aradawebcontent.blob.core.windows.net/arada-com/2024/01/masaar4.jpg" alt="Aljada" /></div>
-    <div class="gallery-item"><img src="https://aradawebcontent.blob.core.windows.net/arada-com/2024/01/masaar5.jpg" alt="Aljada" /></div>
-    <div class="gallery-item"><img src="https://aradawebcontent.blob.core.windows.net/arada-com/2024/01/masaar6.jpg" alt="Aljada" /></div>
-    <div class="gallery-item"><img src="https://aradawebcontent.blob.core.windows.net/arada-com/2024/01/masaar2.jpg" alt="Aljada" /></div>
-    <div class="gallery-item"><img src="https://aradawebcontent.blob.core.windows.net/arada-com/2024/01/masaar7.jpg" alt="Aljada" /></div>
+    <div class="gallery-item"><img src="https://aradawebcontent.blob.core.windows.net/arada-com/2022/09/gene-7.jpg" alt="Aljada" /></div>
+    <div class="gallery-item"><img src="https://aradawebcontent.blob.core.windows.net/arada-com/2022/09/gene-6.jpg" alt="Aljada" /></div>
+    <div class="gallery-item"><img src="https://aradawebcontent.blob.core.windows.net/arada-com/2022/09/gene-5.jpg" alt="Aljada" /></div>
+    <div class="gallery-item"><img src="https://aradawebcontent.blob.core.windows.net/arada-com/2022/09/gene-4.jpg" alt="Aljada" /></div>
+    <div class="gallery-item"><img src="https://aradawebcontent.blob.core.windows.net/arada-com/2022/09/gene-3.jpg" alt="Aljada" /></div>
   </div>
 </div>
 
-<section class="units-section">
-  <div class="section-label">Unit Types</div>
+<!-- COLLECTIONS -->
+<section class="collections">
+  <div class="section-label">Available Collections</div>
   <h2 class="section-title">Choose Your <em>Home</em></h2>
   <div class="divider"></div>
-  <div class="units-grid">
-    <div class="unit-card">
-      <div class="unit-br">Studio</div>
-      <div class="unit-desc">Efficient, modern studio apartments ideal for singles and young professionals. Smart layouts with premium finishes.</div>
-      <div class="unit-price">From AED 750,000</div>
+
+  <div class="collections-grid">
+
+    <div class="collection-card">
+      <img class="collection-img" src="https://aradawebcontent.blob.core.windows.net/arada-com/2024/10/gate-3-banner-v1.jpg" alt="The Gate 3 - 1 BR" />
+      <span class="collection-avail">Available</span>
+      <div class="collection-body">
+        <div class="collection-name">The Gate 3</div>
+        <div class="collection-type">1 Bedroom Apartment · Aljada</div>
+        <div class="collection-price">From AED 1,226,000</div>
+      </div>
     </div>
-    <div class="unit-card">
-      <div class="unit-br">1 Bedroom</div>
-      <div class="unit-desc">Spacious 1BR apartments with balconies, landmark views, and direct access to community amenities and retail.</div>
-      <div class="unit-price">Price on Request</div>
+
+    <div class="collection-card">
+      <img class="collection-img" src="https://aradawebcontent.blob.core.windows.net/arada-com/2022/09/gene-5.jpg" alt="The Gate 3 - 2 BR" />
+      <span class="collection-avail">Available</span>
+      <div class="collection-body">
+        <div class="collection-name">The Gate 3</div>
+        <div class="collection-type">2 Bedroom Apartment · Aljada</div>
+        <div class="collection-price">From AED 1,377,000</div>
+      </div>
     </div>
-    <div class="unit-card">
-      <div class="unit-br">2 Bedroom</div>
-      <div class="unit-desc">Perfect for couples and small families. Large layouts with fitted kitchens, built-in wardrobes, and covered parking.</div>
-      <div class="unit-price">Price on Request</div>
+
+    <div class="collection-card">
+      <img class="collection-img" src="https://aradawebcontent.blob.core.windows.net/arada-com/2022/09/gene-4.jpg" alt="The Gate 3 - 3 BR" />
+      <span class="collection-avail">Available</span>
+      <div class="collection-body">
+        <div class="collection-name">The Gate 3</div>
+        <div class="collection-type">3 Bedroom Apartment · Aljada</div>
+        <div class="collection-price">From AED 2,054,000</div>
+      </div>
     </div>
-    <div class="unit-card">
-      <div class="unit-br">3 – 4 Bedroom</div>
-      <div class="unit-desc">Premium larger units with exceptional space, green park views, and direct access to Aljada's sports complex and facilities.</div>
-      <div class="unit-price">Price on Request</div>
+
+    <div class="collection-card">
+      <img class="collection-img" src="https://aradawebcontent.blob.core.windows.net/arada-com/2022/09/gene-7.jpg" alt="Safa Parkview - 1 BR" />
+      <span class="collection-avail">Available</span>
+      <div class="collection-body">
+        <div class="collection-name">Safa Parkview</div>
+        <div class="collection-type">1 – 3 Bedroom Apartments · Aljada</div>
+        <div class="collection-price">Price on Request</div>
+      </div>
     </div>
+
+    <div class="collection-card">
+      <img class="collection-img" src="https://aradawebcontent.blob.core.windows.net/arada-com/2022/09/gene-6.jpg" alt="Safa 1 - 2 BR" />
+      <span class="collection-avail">Available</span>
+      <div class="collection-body">
+        <div class="collection-name">Safa 1</div>
+        <div class="collection-type">2 Bedroom Apartment · Aljada</div>
+        <div class="collection-price">From AED 1,497,000</div>
+      </div>
+    </div>
+
+    <div class="collection-card">
+      <img class="collection-img" src="https://aradawebcontent.blob.core.windows.net/arada-com/2022/09/gene-3.jpg" alt="Safa 1 - 3 BR" />
+      <span class="collection-avail">Available</span>
+      <div class="collection-body">
+        <div class="collection-name">Safa 1</div>
+        <div class="collection-type">3 Bedroom Apartment · Aljada</div>
+        <div class="collection-price">From AED 2,432,000</div>
+      </div>
+    </div>
+
   </div>
 </section>
 
+<!-- FEATURES -->
 <section class="features-section">
-  <div class="section-label">Features & Amenities</div>
-  <h2 class="section-title">Life at <em>Aljada</em></h2>
+  <div class="section-label">What's Included</div>
+  <h2 class="section-title">Key <em>Features</em> & Facilities</h2>
   <div class="divider"></div>
   <div class="features-grid">
     <div>
-      <p class="section-label" style="margin-bottom:20px;">Key Features</p>
+      <p class="section-label" style="margin-bottom: 20px;">Key Features</p>
       <ul class="feature-list">
-        <li>24M sq.ft. vibrant urban development</li>
-        <li>Smart home features as standard</li>
-        <li>Madar entertainment hub by Zaha Hadid Architects</li>
-        <li>Direct access to full-size football pitch & 5-a-side courts</li>
-        <li>Padel tennis, basketball, volleyball, badminton facilities</li>
-        <li>Retail, healthcare and dining on East Boulevard</li>
-        <li>Lush green parks and natural landscaping</li>
-        <li>10 min from Sharjah International Airport</li>
-        <li>15 min from University City of Sharjah</li>
-        <li>Freehold ownership available for international buyers</li>
-        <li>High ROI investment area in Sharjah</li>
-        <li>Floor-to-ceiling windows with park or boulevard views</li>
+        <li>Direct access to Aljada's main sports complex with a full-size football pitch and 5-a-side pitches</li>
+        <li>Facilities for padel tennis, basketball, volleyball and badminton in a landscaped green park</li>
+        <li>Direct access to tree-lined shopping and dining boulevards</li>
+        <li>Exclusive access to residents' gym and swimming pools</li>
+        <li>Smart home features included in every home</li>
+        <li>Cooking range, hood and washer-dryer included in every home</li>
+        <li>2 minutes' walk from an international school</li>
+        <li>5 minutes' walk from Madar family entertainment complex</li>
+        <li>Walking distance to Naseej cultural district and Arada CBD</li>
+        <li>Freehold ownership for all nationalities with flexible payment plans</li>
       </ul>
     </div>
     <div>
-      <p class="section-label" style="margin-bottom:20px;">Facilities</p>
-      <div class="amenity-grid">
-        <div class="amenity-item">⚽ Football Pitch (Full-Size)</div>
-        <div class="amenity-item">🏓 Padel Tennis Courts</div>
-        <div class="amenity-item">🏀 Basketball Courts</div>
-        <div class="amenity-item">🏐 Volleyball Courts</div>
-        <div class="amenity-item">🎡 Madar Entertainment</div>
-        <div class="amenity-item">🛍️ East Boulevard Retail</div>
-        <div class="amenity-item">🌿 Green Parks & Walks</div>
-        <div class="amenity-item">🏥 Healthcare Facilities</div>
-        <div class="amenity-item">🍽️ Restaurants & Dining</div>
-        <div class="amenity-item">🎓 Schools & Education</div>
-        <div class="amenity-item">🚗 Covered Parking</div>
-        <div class="amenity-item">🔒 24/7 Security</div>
+      <p class="section-label" style="margin-bottom: 20px;">Facilities Per Unit</p>
+      <div class="facilities-grid">
+        <div class="facility-item">🚗 Parking</div>
+        <div class="facility-item">🏠 Balcony</div>
+        <div class="facility-item">🚿 Guest Bathroom</div>
+        <div class="facility-item">❄️ Smart Home Features</div>
+        <div class="facility-item">🛏️ Ensuite Master Bedroom</div>
+        <div class="facility-item">🗄️ Built-in Wardrobes</div>
+        <div class="facility-item">🍳 Kitchen Cabinets & Cooker</div>
+        <div class="facility-item">🧺 Washer-Dryer Installed</div>
+        <div class="facility-item">🌿 Park or Boulevard View</div>
+        <div class="facility-item">🏊 Swimming Pools</div>
+        <div class="facility-item">🏋️ Residents' Gym</div>
+        <div class="facility-item">🔒 Security & Access Control</div>
       </div>
     </div>
   </div>
 </section>
 
+<!-- LOCATION -->
 <section class="location-section">
   <div>
     <div class="section-label">Location</div>
     <h2 class="section-title">Find <em>Aljada</em></h2>
     <div class="divider"></div>
-    <p style="color:var(--muted);font-size:15px;line-height:1.8;margin-bottom:28px;">Located at the intersection of E311 and E88 in New Sharjah — perfectly connected to Dubai and all key destinations.</p>
-    <div class="loc-item"><div class="loc-num">10 min</div><div class="loc-place">Sharjah International Airport</div></div>
-    <div class="loc-item"><div class="loc-num">15 min</div><div class="loc-place">University City of Sharjah</div></div>
-    <div class="loc-item"><div class="loc-num">15 min</div><div class="loc-place">American University in Sharjah</div></div>
-    <div class="loc-item"><div class="loc-num">20 min</div><div class="loc-place">Dubai via E311 / E88</div></div>
-    <div class="loc-item"><div class="loc-num">Walk</div><div class="loc-place">Carrefour Market & Al Zahia Park</div></div>
+    <p style="color: var(--muted); font-size: 15px; line-height: 1.8; margin-bottom: 28px;">
+      Aljada is the downtown of new Sharjah — close to both Sharjah and Dubai airports, with everything you need within the community itself.
+    </p>
+    <div style="display: flex; flex-direction: column; gap: 14px;">
+      <div style="display: flex; align-items: center; gap: 12px; font-size: 14px; color: var(--muted);">
+        <span style="color: var(--gold);">📍</span>
+        Aljada Discovery Center, Aljada, Sharjah
+      </div>
+      <div style="display: flex; align-items: center; gap: 12px; font-size: 14px; color: var(--muted);">
+        <span style="color: var(--gold);">✈️</span>
+        7 min from Sharjah International Airport
+      </div>
+      <div style="display: flex; align-items: center; gap: 12px; font-size: 14px; color: var(--muted);">
+        <span style="color: var(--gold);">🛫</span>
+        20 min from Dubai International Airport
+      </div>
+    </div>
   </div>
   <div class="map-embed">
-    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3607!2d55.5!3d25.32!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ef5f5c7b8c3b0bf%3A0x1234!2sAljada+Sharjah!5e0!3m2!1sen!2s!4v1" allowfullscreen="" loading="lazy"></iframe>
+    <iframe src="https://www.google.com/maps?q=25.3184047,55.4742758&z=15&output=embed" allowfullscreen="" loading="lazy"></iframe>
   </div>
 </section>
 
+<!-- CONTACT -->
 <div class="contact-section" id="contact">
   <div class="section-label">Get in Touch</div>
   <h2 class="section-title">Enquire About <em>Aljada</em></h2>
-  <div class="divider" style="margin:0 auto 16px;"></div>
-  <p style="color:var(--muted);font-size:14px;line-height:1.8;">Interested in Aljada by Arada? Our King Land Properties team will contact you within 24 hours with full pricing, floor plans and payment options.</p>
+  <div class="divider" style="margin: 0 auto 16px;"></div>
+  <p style="color: var(--muted); font-size: 14px; line-height: 1.8;">
+    Interested in Aljada? Our King Land Properties team will contact you within 24 hours with full pricing, floor plans and payment options.
+  </p>
+
   <div class="contact-form">
     <div class="form-row">
-      <div class="form-group"><label>Full Name *</label><input type="text" id="fname" placeholder="Your full name" /></div>
-      <div class="form-group"><label>Phone / WhatsApp *</label><input type="tel" id="fphone" placeholder="+971 or your number" /></div>
+      <div class="form-group">
+        <label>Full Name *</label>
+        <input type="text" id="fname" placeholder="Your full name" required />
+      </div>
+      <div class="form-group">
+        <label>Phone / WhatsApp *</label>
+        <input type="tel" id="fphone" placeholder="+971 or your number" required />
+      </div>
     </div>
-    <div class="form-group"><label>Email Address</label><input type="email" id="femail" placeholder="your@email.com" /></div>
-    <div class="form-group"><label>Interested In</label>
+    <div class="form-group">
+      <label>Email Address</label>
+      <input type="email" id="femail" placeholder="your@email.com" />
+    </div>
+    <div class="form-group">
+      <label>Interested In</label>
       <select id="funit">
         <option value="">Select unit type...</option>
-        <option>Studio Apartment (From AED 750,000)</option>
-        <option>1 Bedroom Apartment</option>
-        <option>2 Bedroom Apartment</option>
-        <option>3 Bedroom Apartment</option>
-        <option>4 Bedroom Apartment</option>
+        <option>The Gate 3 — 1 BR (From AED 1,226,000)</option>
+        <option>The Gate 3 — 2 BR (From AED 1,377,000)</option>
+        <option>The Gate 3 — 3 BR (From AED 2,054,000)</option>
+        <option>Safa Parkview — 1 / 2 / 3 BR</option>
+        <option>Safa 1 — 2 BR (From AED 1,497,000)</option>
+        <option>Safa 1 — 3 BR (From AED 2,432,000)</option>
         <option>Other / Not Sure</option>
       </select>
     </div>
-    <div class="form-group"><label>Budget Range (AED)</label>
+    <div class="form-group">
+      <label>Budget Range (AED)</label>
       <select id="fbudget">
         <option value="">Select budget...</option>
-        <option>Under 1,000,000</option>
         <option>1,000,000 – 2,000,000</option>
-        <option>2,000,000 – 5,000,000</option>
+        <option>2,000,000 – 3,000,000</option>
+        <option>Above 3,000,000</option>
         <option>Flexible / Need Guidance</option>
       </select>
     </div>
-    <div class="form-group"><label>Message (Optional)</label><textarea id="fmsg" placeholder="Any questions about Aljada? Payment plan, site visit, floor plans..."></textarea></div>
+    <div class="form-group">
+      <label>Message (Optional)</label>
+      <textarea id="fmsg" placeholder="Any questions about Aljada? Payment plan, site visit, floor plans..."></textarea>
+    </div>
+
     <button class="submit-btn" onclick="submitForm()">Send Enquiry →</button>
-    <a href="https://wa.me/971523140582?text=Hi%2C+I+am+interested+in+Aljada+by+Arada.+Please+share+more+details." class="whatsapp-btn" target="_blank">
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="#25d366"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.105.544 4.082 1.497 5.801L0 24l6.388-1.459A11.93 11.93 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.793 9.793 0 01-5.001-1.372l-.359-.214-3.717.848.865-3.618-.234-.372A9.78 9.78 0 012.182 12C2.182 6.576 6.576 2.182 12 2.182S21.818 6.576 21.818 12 17.424 21.818 12 21.818z"/></svg>
+
+    <a href="https://wa.me/971523140582?text=Hi%2C%20I%27m%20interested%20in%20Aljada%20by%20Arada.%20Please%20share%20more%20details." class="whatsapp-btn" target="_blank">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="#25d366">
+        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+        <path d="M12 0C5.373 0 0 5.373 0 12c0 2.105.544 4.082 1.497 5.801L0 24l6.388-1.459A11.93 11.93 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.793 9.793 0 01-5.001-1.372l-.359-.214-3.717.848.865-3.618-.234-.372A9.78 9.78 0 012.182 12C2.182 6.576 6.576 2.182 12 2.182S21.818 6.576 21.818 12 17.424 21.818 12 21.818z"/>
+      </svg>
       WhatsApp Us Directly
     </a>
-    <div class="form-success" id="formSuccess">✅ Enquiry sent! Our King Land Properties team will contact you within 24 hours.</div>
+
+    <div class="form-success" id="formSuccess">
+      ✅ Enquiry sent! Our King Land Properties team will contact you within 24 hours.
+    </div>
     <p class="form-note">King Land Properties LLC · +971 52 314 0582 · king.landpropertiesllcofficial@gmail.com</p>
   </div>
 </div>
 
-<footer>
+<!-- FOOTER -->
+<footer class="footer">
   <div>
     <div class="footer-brand">King Land Properties LLC</div>
-    <div style="font-size:12px;color:var(--muted);margin-top:6px;">Dubai & Sharjah · UAE · Certified Real Estate Dealer</div>
+    <div style="font-size: 12px; color: var(--muted); margin-top: 6px;">Dubai & Sharjah · UAE · Certified Real Estate Dealer</div>
   </div>
   <div class="footer-info">
     Floor #6, Mai Tower, Al Nadal, Dubai<br>
     +971 52 314 0582 · king.landpropertiesllcofficial@gmail.com<br>
-    <a href="index.html" style="color:var(--gold);text-decoration:none;font-size:11px;letter-spacing:0.1em;">← Back to All Properties</a>
+    <a href="index.html" style="color: var(--gold); text-decoration: none; font-size: 11px; letter-spacing: 0.1em;">← Back to All Properties</a>
   </div>
 </footer>
 
 <script>
+  let current = 0;
+  const slides = document.querySelectorAll('.hero-slide');
+  const dots = document.querySelectorAll('.hero-dot');
+
+  function goSlide(n) {
+    slides[current].classList.remove('active');
+    dots[current].classList.remove('active');
+    current = n;
+    slides[current].classList.add('active');
+    dots[current].classList.add('active');
+  }
+
+  setInterval(() => { goSlide((current + 1) % slides.length); }, 4500);
+
   function submitForm() {
     const name = document.getElementById('fname').value.trim();
     const phone = document.getElementById('fphone').value.trim();
     if (!name || !phone) { alert('Please fill in your name and phone number.'); return; }
+
     const unit = document.getElementById('funit').value || 'Not specified';
     const budget = document.getElementById('fbudget').value || 'Not specified';
     const msg = document.getElementById('fmsg').value || '';
     const email = document.getElementById('femail').value || '';
-    const wa = `Hi%2C+I'm+interested+in+Aljada+by+Arada.%0AName:+${encodeURIComponent(name)}%0APhone:+${encodeURIComponent(phone)}%0AEmail:+${encodeURIComponent(email)}%0AUnit:+${encodeURIComponent(unit)}%0ABudget:+${encodeURIComponent(budget)}%0AMessage:+${encodeURIComponent(msg)}`;
+
+    const wa = `Hi, I'm interested in Aljada by Arada.%0A%0AName: ${encodeURIComponent(name)}%0APhone: ${encodeURIComponent(phone)}%0AEmail: ${encodeURIComponent(email)}%0AUnit: ${encodeURIComponent(unit)}%0ABudget: ${encodeURIComponent(budget)}%0AMessage: ${encodeURIComponent(msg)}`;
+
     document.getElementById('formSuccess').style.display = 'block';
-    setTimeout(() => window.open(`https://wa.me/971523140582?text=${wa}`, '_blank'), 800);
+    setTimeout(() => { window.open(`https://wa.me/971523140582?text=${wa}`, '_blank'); }, 800);
   }
 </script>
 </body>
