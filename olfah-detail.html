@@ -16,8 +16,8 @@
   .topbar-back { display: flex; align-items: center; gap: 10px; color: var(--gold); text-decoration: none; font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; transition: opacity 0.2s; }
   .topbar-back:hover { opacity: 0.7; }
   .topbar-back svg { width: 18px; }
-  .topbar-brand { font-family: 'Cormorant Garamond', serif; font-size: 15px; font-weight: 600; color: var(--gold); text-decoration: none; }
-  .topbar-cta { background: var(--gold); color: var(--dark); border: none; padding: 9px 22px; font-size: 12px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none; transition: background 0.2s; }
+  .topbar-brand { font-family: 'Cormorant Garamond', serif; font-size: 15px; font-weight: 600; letter-spacing: 0.06em; color: var(--gold); text-decoration: none; }
+  .topbar-cta { background: var(--gold); color: var(--dark); border: none; padding: 9px 22px; font-family: 'DM Sans', sans-serif; font-size: 12px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none; transition: background 0.2s; }
   .topbar-cta:hover { background: var(--gold-light); }
 
   .hero { position: relative; height: 92vh; min-height: 560px; display: flex; align-items: flex-end; overflow: hidden; }
@@ -65,7 +65,7 @@
 
   .gallery-section { padding: 80px 60px; background: var(--dark); }
   .gallery-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; grid-template-rows: 260px 260px; gap: 6px; margin-top: 40px; }
-  .gallery-item { overflow: hidden; }
+  .gallery-item { overflow: hidden; cursor: pointer; }
   .gallery-item:first-child { grid-row: 1 / 3; }
   .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease; display: block; }
   .gallery-item:hover img { transform: scale(1.04); }
@@ -101,7 +101,7 @@
   .loc-num { font-family: 'Cormorant Garamond', serif; font-size: 28px; font-weight: 600; color: var(--gold); min-width: 70px; }
   .loc-place { font-size: 14px; color: var(--text); }
   .map-embed { border: 1px solid rgba(201,169,110,0.15); overflow: hidden; height: 360px; }
-  .map-embed iframe { width: 100%; height: 100%; border: none; }
+  .map-embed iframe { width: 100%; height: 100%; border: none; filter: grayscale(40%) invert(0.05); }
 
   .contact-section { background: var(--dark2); max-width: 720px; margin: 0 auto; text-align: center; padding: 100px 40px; }
   .contact-form { background: var(--dark3); border: 1px solid rgba(201,169,110,0.15); padding: 50px; margin-top: 50px; text-align: left; }
@@ -125,6 +125,7 @@
 
   @media (max-width: 900px) {
     section { padding: 60px 24px; }
+    .gallery-section { padding: 60px 24px; }
     .topbar { padding: 16px 24px; }
     .hero-content { padding: 0 24px 56px; }
     .offplan-banner { padding: 20px 24px; }
@@ -136,6 +137,7 @@
     .amenities-grid { grid-template-columns: repeat(2, 1fr); }
     .form-row { grid-template-columns: 1fr; }
     .footer { flex-direction: column; gap: 20px; }
+    footer { flex-direction: column; gap: 20px; text-align: center; padding: 40px 24px; }
     .footer-info { text-align: center; }
     .topbar-brand { display: none; }
     .contact-section { padding: 70px 20px; }
@@ -311,7 +313,7 @@
     <div class="loc-item"><div class="loc-num">25 min</div><div class="loc-place">Downtown Dubai</div></div>
   </div>
   <div class="map-embed">
-    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3607!2d55.44!3d25.31!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjXCsDE4JzM2LjAiTiA1NcKwMjYnMjQuMCJF!5e0!3m2!1sen!2s!4v1" allowfullscreen="" loading="lazy"></iframe>
+    <iframe src="https://www.google.com/maps?q=25.31,55.44&z=15&output=embed" allowfullscreen="" loading="lazy"></iframe>
   </div>
 </section>
 
@@ -322,8 +324,8 @@
   <p style="color:var(--muted);font-size:14px;line-height:1.8;">Interested in Olfah by Alef? Our King Land Properties team will contact you within 24 hours with full pricing, floor plans and payment options.</p>
   <div class="contact-form">
     <div class="form-row">
-      <div class="form-group"><label>Full Name *</label><input type="text" id="fname" placeholder="Your full name" /></div>
-      <div class="form-group"><label>Phone / WhatsApp *</label><input type="tel" id="fphone" placeholder="+971 or your number" /></div>
+      <div class="form-group"><label>Full Name *</label><input type="text" id="fname" placeholder="Your full name" required /></div>
+      <div class="form-group"><label>Phone / WhatsApp *</label><input type="tel" id="fphone" placeholder="+971 or your number" required /></div>
     </div>
     <div class="form-group"><label>Email Address</label><input type="email" id="femail" placeholder="your@email.com" /></div>
     <div class="form-group"><label>Interested In</label>
